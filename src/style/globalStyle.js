@@ -1,11 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
+import TmonMonsori from 'assets/fonts/TMON/TMONBlack.ttf';
+import TmonTium from 'assets/fonts/TMON/TMONTium.ttf';
+import NanumSquareL from 'assets/fonts/NanumSquareL.woff';
+import NanumSquareR from 'assets/fonts/NanumSquareR.woff';
 import { fontFace } from './utils';
-import NanumSquareL from '../assets/fonts/NanumSquareL.woff';
-import NanumSquareR from '../assets/fonts/NanumSquareR.woff';
 
 const globalStyle = createGlobalStyle`
   ${fontFace('NanumSquareL', NanumSquareL, 'woff')}
   ${fontFace('NanumSquareR', NanumSquareR, 'woff')}
+  ${fontFace('TmonMonsori', TmonMonsori, 'truetype')}
+  ${fontFace('TmonTium', TmonTium, 'truetype')}
 
   :hover, :focus {
     outline: none;

@@ -33,8 +33,8 @@ const device = {
 const colors = {
   whiteColor: '#fff',
   textColor: '#1e1e1e',
-  primaryColor: '#49317B',
-  accentColor: '#04ECDE',
+  primaryColor: '#FFC400',
+  accentColor: '#000000',
 };
 
 const themes = {
