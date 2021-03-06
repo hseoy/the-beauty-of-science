@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const Wrap = styled.div`
+const Wrap = styled.footer`
   ${({ theme }) =>
     theme.colors.primaryColor &&
     css`
