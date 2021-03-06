@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 
 const Wrap = styled.div`
-  ${props =>
-    props.bgColor &&
+  ${({ theme }) =>
+    theme.colors.primaryColor &&
     css`
-      background-color: ${props.bgColor};
+      background-color: ${theme.colors.primaryColor};
     `}
   width: 100%;
   height: 80px;
@@ -17,15 +17,11 @@ const Wrap = styled.div`
 `;
 
 const AuthorLink = styled.a`
-  ${props =>
-    props.color &&
+  ${({ theme }) =>
+    theme.colors.accentColor &&
     css`
-      color: ${props.color};
-    `}
-  ${props =>
-    props.bdColor &&
-    css`
-      border: 3px solid ${props.bdColor};
+      color: ${theme.colors.accentColor};
+      border: 3px solid ${theme.colors.accentColor};
     `}
   margin: 0 2px;
   border-radius: 20px;
@@ -35,15 +31,15 @@ const AuthorLink = styled.a`
   &:hover {
     text-decoration: none;
 
-    ${props =>
-      props.hoverBgColor &&
+    ${({ theme }) =>
+      theme.colors.accentColor &&
       css`
-        background-color: ${props.hoverBgColor};
+        background-color: ${theme.colors.accentColor};
       `}
-    ${props =>
-      props.hoverColor &&
+    ${({ theme }) =>
+      theme.colors.primaryColor &&
       css`
-        color: ${props.hoverColor};
+        color: ${theme.colors.primaryColor};
       `}
   }
 `;

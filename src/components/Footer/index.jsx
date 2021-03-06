@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeContext } from 'styled-components';
 import S from './style';
 
 const getCurrentYear = () => {
@@ -9,21 +8,11 @@ const getCurrentYear = () => {
 };
 
 const Footer = ({ copyrightYear, author, homepage }) => {
-  const themeContext = useContext(ThemeContext);
-
   return (
-    <S.Wrap bgColor={themeContext.colors.primaryColor}>
+    <S.Wrap>
       <p>
         {`Copyright ${copyrightYear}. `}
-        <S.AuthorLink
-          target="_blank"
-          rel="noreferrer"
-          href={homepage}
-          color={themeContext.colors.accentColor}
-          bdColor={themeContext.colors.accentColor}
-          hoverBgColor={themeContext.colors.accentColor}
-          hoverColor={themeContext.colors.primaryColor}
-        >
+        <S.AuthorLink target="_blank" rel="noreferrer" href={homepage}>
           {author}
         </S.AuthorLink>
         . All rights reserved.
