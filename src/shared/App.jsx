@@ -5,10 +5,12 @@ import Home from 'pages/Home';
 import Navigation from 'components/Navigation';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
+import GoHomeLink from 'components/GoHomeLink';
 
 const App = () => {
   return (
     <>
+      <GoHomeLink />
       <Header />
       <Navigation />
       <Route exact path="/" component={Home} />
