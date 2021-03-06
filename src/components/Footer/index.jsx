@@ -10,13 +10,11 @@ const getCurrentYear = () => {
 const Footer = ({ copyrightYear, author, homepage }) => {
   return (
     <S.Wrap>
-      <p>
-        {`Copyright ${copyrightYear}. `}
-        <S.AuthorLink target="_blank" rel="noreferrer" href={homepage}>
-          {author}
-        </S.AuthorLink>
-        . All rights reserved.
-      </p>
+      {`Copyright ${copyrightYear}. `}
+      <S.AuthorLink target="_blank" rel="noreferrer" href={homepage}>
+        {author}
+      </S.AuthorLink>
+      . All rights reserved.
     </S.Wrap>
   );
 };
