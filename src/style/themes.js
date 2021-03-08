@@ -1,6 +1,6 @@
 import { calcRem, pxToRem, fontFace } from './utils';
 
-const fontFamiyBase = `'NanumSquareL', 'NanumBarunpenR', sans-serif`;
+const fontFamiyBase = `'NanumSquareR', 'NanumBarunpenR', sans-serif`;
 const fontFamilyAccent = `'TmonTium', 'TmonMonsori', ${fontFamiyBase}`;
 
 const font = {

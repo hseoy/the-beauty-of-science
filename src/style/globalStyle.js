@@ -23,7 +23,7 @@ const globalStyle = createGlobalStyle`
   html, body {
     width: 100%;
     height: 100%;
-    font-family: 'NanumSquareL', 'NanumBarunpenR', sans-serif;
+    font-family: 'NanumSquareR', 'NanumBarunpenR', sans-serif;
   }
 
   body, h1, h2, h3, h4, h5, h6,
@@ -35,10 +35,6 @@ const globalStyle = createGlobalStyle`
     box-sizing: border-box;
     border: none;
     outline: none;
-  }
-
-  ul, ol, li {
-    list-style: none;
   }
 
   button {

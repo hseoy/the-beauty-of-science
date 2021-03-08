@@ -1,6 +1,13 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { Home, About, ModalPage, SignInPage, SignUpPage } from 'pages';
+import {
+  Home,
+  About,
+  ModalPage,
+  SignInPage,
+  SignUpPage,
+  MdEditorPage,
+} from 'pages';
 import GoHomeLink from 'components/GoHomeLink';
 import EditorTriggerButton from 'components/EditorTriggerButton';
 
@@ -14,6 +21,7 @@ const App = () => {
       <Route path="/modal" component={ModalPage} />
       <Route path="/signin" component={SignInPage} />
       <Route path="/signup" component={SignUpPage} />
+      <Route path="/mdeditor" component={MdEditorPage} />
       {isSigned && (
         <>
           <EditorTriggerButton hiddenTitle="Write it" left>
