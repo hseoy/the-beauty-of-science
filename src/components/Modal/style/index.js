@@ -6,7 +6,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   background-color: #000000b3;
-  transition: 0.8s;
+  transition: 0.6s;
   z-index: -1;
   ${({ visible }) =>
     visible
@@ -25,7 +25,7 @@ const Wrap = styled.div`
   z-index: 1000;
   width: 100%;
   overflow: hidden;
-  transition: 0.8s;
+  transition: 0.6s;
   ${({ visible }) =>
     visible
       ? css`
@@ -40,7 +40,7 @@ const ModalWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.8s;
+  transition: 0.6s;
   overflow: hidden;
   width: 100%;
   ${({ visible }) =>
