@@ -3,11 +3,16 @@ import TmonMonsori from 'assets/fonts/TMON/TMONBlack.ttf';
 import TmonTium from 'assets/fonts/TMON/TMONTium.ttf';
 import NanumSquareL from 'assets/fonts/NanumSquareL.woff';
 import NanumSquareR from 'assets/fonts/NanumSquareR.woff';
+import NanumBarunpenR from 'assets/fonts/NanumBarunpenR.woff';
+import NanumBarunpenB from 'assets/fonts/NanumBarunpenB.woff';
+
 import { fontFace } from './utils';
 
 const globalStyle = createGlobalStyle`
   ${fontFace('NanumSquareL', NanumSquareL, 'woff')}
   ${fontFace('NanumSquareR', NanumSquareR, 'woff')}
+  ${fontFace('NanumBarunpenR', NanumBarunpenR, 'woff')}
+  ${fontFace('NanumBarunpenB', NanumBarunpenB, 'woff')}
   ${fontFace('TmonMonsori', TmonMonsori, 'truetype')}
   ${fontFace('TmonTium', TmonTium, 'truetype')}
 
@@ -18,6 +23,7 @@ const globalStyle = createGlobalStyle`
   html, body {
     width: 100%;
     height: 100%;
+    font-family: 'NanumSquareL', 'NanumBarunpenR', sans-serif;
   }
 
   body, h1, h2, h3, h4, h5, h6,

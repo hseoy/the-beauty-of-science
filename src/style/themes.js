@@ -1,9 +1,18 @@
 import { calcRem, pxToRem, fontFace } from './utils';
 
-const fontSizes = {
-  title: pxToRem(50),
-  subtitle: pxToRem(30),
-  paragraph: pxToRem(16),
+const fontFamiyBase = `'NanumSquareL', 'NanumBarunpenR', sans-serif`;
+const fontFamilyAccent = `'TmonTium', 'TmonMonsori', ${fontFamiyBase}`;
+
+const font = {
+  size: {
+    title: pxToRem(50),
+    subtitle: pxToRem(30),
+    paragraph: pxToRem(16),
+  },
+  family: {
+    base: fontFamiyBase,
+    accent: fontFamilyAccent,
+  },
 };
 
 const utils = {
@@ -38,7 +47,7 @@ const colors = {
 };
 
 const themes = {
-  fontSizes,
+  font,
   deviceSizes,
   device,
   colors,

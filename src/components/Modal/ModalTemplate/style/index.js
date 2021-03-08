@@ -11,7 +11,11 @@ const Title = styled.h2`
   justify-content: center;
   align-items: center;
   word-break: break-all;
-  font-family: 'TmonTium', 'TmonMonsori', sans-serif;
+  ${({ theme }) =>
+    theme.font.family.accent &&
+    css`
+      font-family: ${theme.font.family.accent};
+    `}
   ${({ theme }) =>
     theme.colors.accentColor &&
     css`
@@ -41,7 +45,11 @@ const Button = styled.button`
   border-radius: 15px;
   font-size: 20px;
   font-weight: bold;
-  font-family: 'TmonTium', 'TmonMonsori', sans-serif;
+  ${({ theme }) =>
+    theme.font.family.accent &&
+    css`
+      font-family: ${theme.font.family.accent};
+    `}
   ${({ theme }) =>
     theme.colors.primaryColor &&
     css`
