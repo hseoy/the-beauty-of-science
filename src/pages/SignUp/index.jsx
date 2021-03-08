@@ -1,5 +1,5 @@
 import React from 'react';
-import SignUp from 'components/SignUp';
+import SignUp from 'components/Sign/SignUp';
 
 const SignUpPage = () => {
   return <SignUp title="The Beauty of Science" />;

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Input, S } from 'components/Sign';
+import Button from './Button';
+import Input from './Input';
+import S from './style';
 
 const SignUp = ({ title }) => {
   return (
