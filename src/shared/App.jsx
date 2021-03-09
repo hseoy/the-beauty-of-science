@@ -10,9 +10,10 @@ import {
 } from 'pages';
 import GoHomeLink from 'components/GoHomeLink';
 import EditorTriggerButton from 'components/EditorTriggerButton';
+import PostEditor from 'components/PostEditor';
 
 const App = () => {
-  const isSigned = false;
+  const isSigned = true;
   return (
     <>
       <GoHomeLink />
@@ -24,9 +25,7 @@ const App = () => {
       <Route path="/mdeditor" component={MdEditorPage} />
       {isSigned && (
         <>
-          <EditorTriggerButton hiddenTitle="Write it" left>
-            Share the beauty
-          </EditorTriggerButton>
+          <PostEditor />
 
           <EditorTriggerButton hiddenTitle="Make a quiz" right>
             Help others learn
