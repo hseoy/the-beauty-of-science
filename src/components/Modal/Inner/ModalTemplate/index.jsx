@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { ThemeContext } from 'styled-components';
 import S from './style';
 
-const ModalTemplate = ({ children, title, button, checkHandler }) => {
+const ModalTemplate = ({
+  children,
+  title,
+  button,
+  checkHandler,
+  primaryColor,
+  accentColor,
+}) => {
+  const themeContext = useContext(ThemeContext);
+  const themePrimaryColor = themeContext.colors.primaryColor;
+  const themeAccentColor = themeContext.colors.accentColor;
+
   const buttonClickHandler = event => {
     if (checkHandler) {
       checkHandler(event);
@@ -11,9 +23,20 @@ const ModalTemplate = ({ children, title, button, checkHandler }) => {
 
   return (
     <>
-      <S.Title>{title}</S.Title>
-      <S.Body>{children}</S.Body>
-      <S.Button onClick={buttonClickHandler}>{button}</S.Button>
+      <S.Title
+        color={accentColor || themeAccentColor}
+        bdColor={accentColor || themeAccentColor}
+      >
+        {title}
+      </S.Title>
+      <S.Body color={accentColor || themeAccentColor}>{children}</S.Body>
+      <S.Button
+        onClick={buttonClickHandler}
+        color={primaryColor || themePrimaryColor}
+        bgColor={accentColor || themeAccentColor}
+      >
+        {button}
+      </S.Button>
     </>
   );
 };
@@ -26,6 +49,8 @@ ModalTemplate.propTypes = {
   ]),
   button: PropTypes.string,
   checkHandler: PropTypes.func,
+  primaryColor: PropTypes.string,
+  accentColor: PropTypes.string,
 };
 
 ModalTemplate.defaultProps = {
@@ -33,6 +58,8 @@ ModalTemplate.defaultProps = {
   children: {},
   button: '',
   checkHandler: undefined,
+  primaryColor: '',
+  accentColor: '',
 };
 
 export default ModalTemplate;

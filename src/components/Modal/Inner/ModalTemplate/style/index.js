@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const Title = styled.h2`
   width: 100%;
@@ -11,17 +11,10 @@ const Title = styled.h2`
   justify-content: center;
   align-items: center;
   word-break: break-all;
-  ${({ theme }) =>
-    theme.font.family.accent &&
-    css`
-      font-family: ${theme.font.family.accent};
-    `}
-  ${({ theme }) =>
-    theme.colors.accentColor &&
-    css`
-      color: ${theme.colors.accentColor};
-      border-bottom: 2px dotted ${theme.colors.accentCOlor};
-    `}
+  font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
+  color: ${props => props.color || props.theme.colors.accentColor || '#000'};
+  border-bottom: 2px dotted
+    ${props => props.bdColor || props.theme.colors.accentColor || '#000'};
 `;
 
 const Body = styled.p`
@@ -32,11 +25,7 @@ const Body = styled.p`
   align-items: center;
   font-size: 18px;
   padding: 2rem 0;
-  ${({ theme }) =>
-    theme.colors.accentColor &&
-    css`
-      color: ${theme.colors.accentColor};
-    `}
+  color: ${props => props.color || props.theme.colors.accentColor || '#000'};
 `;
 
 const Button = styled.button`
@@ -45,21 +34,10 @@ const Button = styled.button`
   border-radius: 15px;
   font-size: 20px;
   font-weight: bold;
-  ${({ theme }) =>
-    theme.font.family.accent &&
-    css`
-      font-family: ${theme.font.family.accent};
-    `}
-  ${({ theme }) =>
-    theme.colors.primaryColor &&
-    css`
-      color: ${theme.colors.primaryColor};
-    `}
-  ${({ theme }) =>
-    theme.colors.accentColor &&
-    css`
-      background-color: ${theme.colors.accentColor};
-    `}
+  font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
+  color: ${props => props.color || props.theme.colors.primaryColor || '#fff'};
+  background-color: ${props =>
+    props.bgColor || props.theme.colors.accentColor || '#000'};
 `;
 
 export { Title };

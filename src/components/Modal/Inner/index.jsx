@@ -30,6 +30,8 @@ const Inner = ({
             button={button}
             checkHandler={checkHandler}
             isCloseButton
+            primaryColor={bgColor}
+            accentColor={color}
           >
             {children}
           </ModalTemplate>
