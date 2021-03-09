@@ -1,37 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as constants from 'myconstants';
 import Navigation from './Navigation';
 import SignLinkGroup from './SignLinkGroup';
 import Title from './Title';
 import UserProfile from './UserProfile';
 import S from './style';
-
-const navItems = [
-  {
-    id: 1,
-    title: 'Category',
-    to: '#',
-    subitems: [
-      { id: 1, title: 'Common', to: '#' },
-      { id: 2, title: 'Physics', to: '#' },
-      { id: 3, title: 'Chemistry', to: '#' },
-      { id: 4, title: 'Geoscience', to: '#' },
-      { id: 5, title: 'Biology', to: '#' },
-    ],
-  },
-  {
-    id: 2,
-    title: 'Rank',
-    to: '#',
-    subitems: [],
-  },
-  {
-    id: 3,
-    title: 'Quiz',
-    to: '#',
-    subitems: [],
-  },
-];
 
 const Header = ({ isSigned, user }) => {
   return (
@@ -43,7 +17,7 @@ const Header = ({ isSigned, user }) => {
         />
         {!isSigned && <SignLinkGroup />}
         {isSigned && <UserProfile user={user} />}
-        <Navigation navItemList={navItems} />
+        <Navigation navItemList={constants.NAV_ITEMS} />
       </S.ContentWrap>
     </S.Wrap>
   );
