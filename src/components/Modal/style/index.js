@@ -1,41 +1,5 @@
 import styled, { css } from 'styled-components';
 
-const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #000000b3;
-  transition: 0.6s;
-  z-index: -1;
-  ${({ visible }) =>
-    visible
-      ? css`
-          height: 100%;
-        `
-      : css`
-          height: 0%;
-        `}
-`;
-
-const Wrap = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  width: 100%;
-  overflow: hidden;
-  transition: 0.6s;
-  ${({ visible }) =>
-    visible
-      ? css`
-          height: 100%;
-        `
-      : css`
-          height: 0%;
-        `}
-`;
-
 const ModalWrap = styled.div`
   display: flex;
   justify-content: center;
@@ -92,10 +56,8 @@ const Content = styled.div`
   padding: 20px;
 `;
 
-export { Overlay };
-export { Wrap };
 export { ModalWrap };
 export { Inner };
 export { CloseButton };
 export { Content };
-export default { Overlay, Wrap, ModalWrap, Inner, CloseButton, Content };
+export default { ModalWrap, Inner, CloseButton, Content };

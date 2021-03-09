@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Portal from 'components/Portal';
+import Overlay from 'components/Overlay';
 import S from './style';
 import ModalTemplate from './ModalTemplate';
 
@@ -38,8 +39,7 @@ const Modal = ({
 
   return (
     <Portal elementId="modal-root">
-      <S.Wrap visible={visible}>
-        <S.Overlay visible={visible} />
+      <Overlay visible={visible} animation>
         <S.ModalWrap
           tapIndex="-1"
           onClick={maskClosable ? onMaskClick : null}
@@ -63,7 +63,7 @@ const Modal = ({
             </S.Content>
           </S.Inner>
         </S.ModalWrap>
-      </S.Wrap>
+      </Overlay>
     </Portal>
   );
 };
