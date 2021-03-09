@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync';
 import MdPreview from './MdPreveiw';
 import S from './style';
 
-const MdEditor = () => {
-  const [mdText, setMdText] = useState("# Hello 'The Beauty of Science'");
-
+const MdEditor = ({ valueChangeHandler, mdText }) => {
   const inputChangeHandler = event => {
     const { value } = event.target;
-    setMdText(value);
+    if (valueChangeHandler) {
+      valueChangeHandler(value);
+    }
   };
 
   return (
@@ -23,6 +24,16 @@ const MdEditor = () => {
       </S.Wrap>
     </ScrollSync>
   );
+};
+
+MdEditor.propTypes = {
+  valueChangeHandler: PropTypes.func,
+  mdText: PropTypes.string,
+};
+
+MdEditor.defaultProps = {
+  valueChangeHandler: undefined,
+  mdText: '# Hello Everyone',
 };
 
 export default MdEditor;

@@ -1,8 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const Wrap = styled.div`
-  margin-top: 100px;
-  height: calc(100% - 272px);
+  height: 100%;
   position: relative;
   padding: 0 10px;
   display: flex;
