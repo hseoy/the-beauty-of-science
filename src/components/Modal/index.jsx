@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Portal from 'components/Portal';
 import Overlay from 'components/Overlay';
 import S from './style';
-import ModalTemplate from './ModalTemplate';
+import Inner from './Inner';
 
 const Modal = ({
   children,
@@ -15,6 +15,7 @@ const Modal = ({
   title,
   button,
   checkHandler,
+  customInner,
 }) => {
   useEffect(() => {
     document.body.style.cssText = `position:fixed; top:-${window.scrollY}px`;
@@ -31,12 +32,6 @@ const Modal = ({
     }
   };
 
-  const close = e => {
-    if (closeHandler) {
-      closeHandler(e);
-    }
-  };
-
   return (
     <Portal elementId="modal-root">
       <Overlay visible={visible} animation>
@@ -45,23 +40,20 @@ const Modal = ({
           onClick={maskClosable ? onMaskClick : null}
           visible={visible}
         >
-          <S.Inner tabIndex="0">
-            {closable && <S.CloseButton onClick={close}>&times;</S.CloseButton>}
-            <S.Content>
-              {useTemplate ? (
-                <ModalTemplate
-                  title={title}
-                  button={button}
-                  checkHandler={checkHandler}
-                  isCloseButton
-                >
-                  {children}
-                </ModalTemplate>
-              ) : (
-                children
-              )}
-            </S.Content>
-          </S.Inner>
+          {customInner ? (
+            children
+          ) : (
+            <Inner
+              closable={closable}
+              closeHandler={closeHandler}
+              useTemplate={useTemplate}
+              title={title}
+              button={button}
+              checkHandler={checkHandler}
+            >
+              {children}
+            </Inner>
+          )}
         </S.ModalWrap>
       </Overlay>
     </Portal>
@@ -81,6 +73,7 @@ Modal.propTypes = {
   title: PropTypes.string,
   button: PropTypes.string,
   checkHandler: PropTypes.func,
+  customInner: PropTypes.bool,
 };
 
 Modal.defaultProps = {
@@ -92,6 +85,7 @@ Modal.defaultProps = {
   title: '',
   button: '',
   checkHandler: undefined,
+  customInner: false,
 };
 
 export default Modal;
