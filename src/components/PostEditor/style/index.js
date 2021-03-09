@@ -50,11 +50,11 @@ const TitleInputWrap = styled.div`
   font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
   font-size: 28px;
   padding: 10px;
+  display: flex;
 
   &::before {
-    content: 'Title : ';
+    content: 'Title:';
     padding-right: 24px;
-    float: left;
   }
 `;
 
@@ -63,9 +63,8 @@ const TitleInput = styled.input`
   border: none;
   font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
   font-size: 28px;
-  margin-left: 106.16px;
   display: block;
-  width: calc(100% - 106.16px);
+  width: 100%;
   border-bottom: 3px solid ${({ theme }) => theme.colors.accentColor || '#000'};
 `;
 
