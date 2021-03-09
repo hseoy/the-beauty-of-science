@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const Inner = styled.div`
   box-sizing: border-box;
@@ -7,17 +7,12 @@ const Inner = styled.div`
   min-width: 500px;
   overflow: hidden;
 
-  ${({ theme }) =>
-    theme.colors.primaryColor &&
-    css`
-      background-color: ${theme.colors.primaryColor};
-    `}
-  ${({ theme }) =>
-    theme.colors.accentColor &&
-    css`
-      border: 5px solid ${theme.colors.accentColor};
-      color: ${theme.colors.accentColor};
-    `}
+  background-color: ${props =>
+    props.bgColor || props.theme.colors.primaryColor || '#fff'};
+
+  border: 5px solid
+    ${props => props.bdColor || props.theme.colors.accentColor || '#000'};
+  color: ${props => props.color || props.theme.colors.accentColor || '#000'};
 `;
 
 const CloseButton = styled.button`

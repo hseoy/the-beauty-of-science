@@ -16,6 +16,9 @@ const Modal = ({
   button,
   checkHandler,
   customInner,
+  bgColor,
+  bdColor,
+  color,
 }) => {
   useEffect(() => {
     document.body.style.cssText = `position:fixed; top:-${window.scrollY}px`;
@@ -50,6 +53,9 @@ const Modal = ({
               title={title}
               button={button}
               checkHandler={checkHandler}
+              bgColor={bgColor}
+              bdColor={bdColor}
+              color={color}
             >
               {children}
             </Inner>
@@ -74,6 +80,9 @@ Modal.propTypes = {
   button: PropTypes.string,
   checkHandler: PropTypes.func,
   customInner: PropTypes.bool,
+  bgColor: PropTypes.string,
+  bdColor: PropTypes.string,
+  color: PropTypes.string,
 };
 
 Modal.defaultProps = {
@@ -86,6 +95,9 @@ Modal.defaultProps = {
   button: '',
   checkHandler: undefined,
   customInner: false,
+  bgColor: '',
+  bdColor: '',
+  color: '',
 };
 
 export default Modal;

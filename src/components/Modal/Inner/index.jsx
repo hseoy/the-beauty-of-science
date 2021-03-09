@@ -11,6 +11,9 @@ const Inner = ({
   title,
   button,
   checkHandler,
+  bgColor,
+  bdColor,
+  color,
 }) => {
   const close = e => {
     if (closeHandler) {
@@ -18,7 +21,7 @@ const Inner = ({
     }
   };
   return (
-    <S.Inner tabIndex="0">
+    <S.Inner tabIndex="0" color={color} bdColor={bdColor} bgColor={bgColor}>
       {closable && <S.CloseButton onClick={close}>&times;</S.CloseButton>}
       <S.Content>
         {useTemplate ? (
@@ -49,6 +52,9 @@ Inner.propTypes = {
   title: PropTypes.string,
   button: PropTypes.string,
   checkHandler: PropTypes.func,
+  bgColor: PropTypes.string,
+  bdColor: PropTypes.string,
+  color: PropTypes.string,
 };
 
 Inner.defaultProps = {
@@ -58,6 +64,9 @@ Inner.defaultProps = {
   title: '',
   button: '',
   checkHandler: undefined,
+  bgColor: '',
+  bdColor: '',
+  color: '',
 };
 
 export default Inner;
