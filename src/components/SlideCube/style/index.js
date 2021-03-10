@@ -38,8 +38,7 @@ const CubeFace = styled.div`
   overflow: hidden;
   background-color: ${props => props.bgColor || '#fff'};
 
-  transform: translateZ(405px)
-    rotateY(
+  transform: rotateY(
       ${props => {
         if (props.front) {
           return 0;
@@ -55,7 +54,8 @@ const CubeFace = styled.div`
         }
         return 0;
       }}deg
-    );
+    )
+    translateZ(405px);
 `;
 
 export { Scene };
