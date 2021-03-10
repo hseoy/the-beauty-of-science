@@ -32,6 +32,7 @@ const Content = styled.div`
   position: relative;
   width: 100%;
   padding: 20px;
+  overflow-y: auto;
 `;
 
 export { Inner };
