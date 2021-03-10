@@ -9,8 +9,8 @@ import {
   MdEditorPage,
 } from 'pages';
 import GoHomeLink from 'components/GoHomeLink';
-import EditorTriggerButton from 'components/EditorTriggerButton';
 import PostEditor from 'components/PostEditor';
+import QuizEditor from 'components/QuizEditor';
 
 const App = () => {
   const isSigned = true;
@@ -26,10 +26,7 @@ const App = () => {
       {isSigned && (
         <>
           <PostEditor />
-
-          <EditorTriggerButton hiddenTitle="Make a quiz" right>
-            Help others learn
-          </EditorTriggerButton>
+          <QuizEditor />
         </>
       )}
     </>
