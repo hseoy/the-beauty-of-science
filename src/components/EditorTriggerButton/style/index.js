@@ -53,6 +53,7 @@ const Button = styled.button`
   top: 50%;
   margin-top: -25px;
   perspective: 400px;
+  z-index: 100;
   background-color: transparent;
   -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(50%, transparent), to(rgba(255, 255, 255, 0.3)));
 
