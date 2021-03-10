@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import TmonMonsori from 'assets/fonts/TMON/TMONBlack.ttf';
 import TmonTium from 'assets/fonts/TMON/TMONTium.ttf';
+import BlackOpsOneR from 'assets/fonts/Black_Ops_One/BlackOpsOne-Regular.ttf';
 import NanumSquareL from 'assets/fonts/NanumSquareL.woff';
 import NanumSquareR from 'assets/fonts/NanumSquareR.woff';
 import NanumBarunpenR from 'assets/fonts/NanumBarunpenR.woff';
@@ -15,6 +16,7 @@ const globalStyle = createGlobalStyle`
   ${fontFace('NanumBarunpenB', NanumBarunpenB, 'woff')}
   ${fontFace('TmonMonsori', TmonMonsori, 'truetype')}
   ${fontFace('TmonTium', TmonTium, 'truetype')}
+  ${fontFace('BlackOpsOneR', BlackOpsOneR, 'truetype')}
 
   :hover, :focus {
     outline: none;
