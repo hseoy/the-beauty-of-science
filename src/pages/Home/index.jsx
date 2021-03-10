@@ -3,18 +3,24 @@ import PropTypes from 'prop-types';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import PopularPosts from 'components/PopularPosts';
+import S from './style';
 
 const Home = ({ isSigned }) => {
   return (
-    <div>
+    <>
       <Header isSigned={isSigned} />
-      <h2>Home</h2>
-      <PopularPosts />
+
+      <S.ContentWrap>
+        <S.Content>
+          <PopularPosts />
+        </S.Content>
+      </S.ContentWrap>
+
       <Footer
         author="Yunseo Hwang"
         homepage="https://github.com/hseoy/the-beauty-of-science"
       />
-    </div>
+    </>
   );
 };
 
