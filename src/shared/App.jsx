@@ -13,11 +13,11 @@ import PostEditor from 'components/PostEditor';
 import QuizEditor from 'components/QuizEditor';
 
 const App = () => {
-  const isSigned = true;
+  const isSigned = false;
   return (
     <>
       <GoHomeLink />
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" render={() => <Home isSigned={isSigned} />} />
       <Route path="/about" component={About} />
       <Route path="/modal" component={ModalPage} />
       <Route path="/signin" component={SignInPage} />
