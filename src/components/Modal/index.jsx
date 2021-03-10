@@ -21,13 +21,16 @@ const Modal = ({
   color,
 }) => {
   useEffect(() => {
-    document.body.style.cssText = `position:fixed; top:-${window.scrollY}px`;
-    return () => {
-      const scrollY = document.body.style.top;
-      document.body.style.cssText = `position: ""; top: "";`;
-      window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
-    };
-  });
+    if (visible) {
+      document.body.style.cssText = `position:fixed; top:-${window.scrollY}px`;
+      return () => {
+        const scrollY = document.body.style.top;
+        document.body.style.cssText = `position: ""; top: "";`;
+        window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+      };
+    }
+    return () => {};
+  }, [visible]);
 
   const onMaskClick = e => {
     if (e.target === e.currentTarget && closeHandler) {
