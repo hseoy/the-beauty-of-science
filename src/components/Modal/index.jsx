@@ -22,11 +22,15 @@ const Modal = ({
 }) => {
   useEffect(() => {
     if (visible) {
-      document.body.style.cssText = `position:fixed; top:-${window.scrollY}px`;
+      document.body.style.cssText = `position:fixed; top:-${window.scrollY}px;left:-${window.scrollX}px;overflow: hidden`;
       return () => {
         const scrollY = document.body.style.top;
-        document.body.style.cssText = `position: ""; top: "";`;
-        window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+        const scrollX = document.body.style.left;
+        document.body.style.cssText = `position: ""; top: "";left: "";`;
+        window.scrollTo(
+          parseInt(scrollX || '0', 10) * -1,
+          parseInt(scrollY || '0', 10) * -1,
+        );
       };
     }
     return () => {};
