@@ -24,6 +24,7 @@ const globalStyle = createGlobalStyle`
 
   html, body {
     width: 100%;
+    min-width: 1550px;
     min-height: 100%;
     font-family: 'NanumSquareR', 'NanumBarunpenR', sans-serif;
   }

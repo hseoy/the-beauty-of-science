@@ -15,6 +15,10 @@ const PopularPosts = () => {
     setCurrentFace(currentFace - 1 >= 0 ? currentFace - 1 : 4);
   };
 
+  const setSlideIndex = num => () => {
+    setCurrentFace(num % 4);
+  };
+
   const author = {
     name: 'Yunseo Hwang',
     level: 'Level 1',
@@ -38,22 +42,40 @@ const PopularPosts = () => {
       </S.TitleWrap>
 
       <S.PostsWrap>
-        <SlideCube
-          face={faces[currentFace]}
-          frontElement={item}
-          rightElement={item}
-          backElement={item}
-          leftElement={item}
-        />
+        <SlideCube index={faces[currentFace]} size={810}>
+          <>
+            {item}
+            {item}
+            {item}
+          </>
+
+          <>
+            {item}
+            {item}
+            {item}
+          </>
+
+          <>
+            {item}
+            {item}
+            {item}
+          </>
+
+          <>
+            {item}
+            {item}
+            {item}
+          </>
+        </SlideCube>
         <S.PrevButton onClick={prevSlide}>&#10094;</S.PrevButton>
         <S.NextButton onClick={nextSlide}>&#10095;</S.NextButton>
       </S.PostsWrap>
 
       <S.DotsWrap>
-        <S.Dot active={currentFace === 0} />
-        <S.Dot active={currentFace === 1} />
-        <S.Dot active={currentFace === 2} />
-        <S.Dot active={currentFace === 3} />
+        <S.Dot active={currentFace === 0} onClick={setSlideIndex(0)} />
+        <S.Dot active={currentFace === 1} onClick={setSlideIndex(1)} />
+        <S.Dot active={currentFace === 2} onClick={setSlideIndex(2)} />
+        <S.Dot active={currentFace === 3} onClick={setSlideIndex(3)} />
       </S.DotsWrap>
     </S.Wrap>
   );

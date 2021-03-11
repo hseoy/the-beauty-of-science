@@ -1,17 +1,21 @@
 import styled from 'styled-components';
 
 const Scene = styled.div`
-  margin: 0 auto;
+  position: relative;
   perspective: 1000px;
+  max-width: ${props => props.size || '0'}px;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
 `;
 
 const Cube = styled.div`
-  position: relative;
   transform-style: preserve-3d;
-  transform: translateZ(-405px);
   transition: transform 1s;
+  width: 100%;
+  height: 100%;
 
-  transform: translateZ(-405px)
+  transform: translateZ(-${props => props.size / 2 || '0'}px)
     rotateY(
       ${props => {
         if (props.front) {
@@ -24,7 +28,7 @@ const Cube = styled.div`
           return -180;
         }
         if (props.left) {
-          return 90;
+          return -270;
         }
         return 0;
       }}deg
@@ -33,9 +37,10 @@ const Cube = styled.div`
 
 const CubeFace = styled.div`
   position: absolute;
-  margin: 0 auto;
   text-align: center;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
   background-color: ${props => props.bgColor || '#fff'};
 
   transform: rotateY(
@@ -50,15 +55,26 @@ const CubeFace = styled.div`
           return 180;
         }
         if (props.left) {
-          return -90;
+          return 270;
         }
         return 0;
       }}deg
     )
-    translateZ(405px);
+    translateZ(${props => props.size / 2 || '0'}px);
+`;
+
+const CubeFaceEmpty = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: ${props => props.theme.colors.primaryColor || '#fff'};
+  border: 3px solid ${props => props.theme.colors.accentColor || '#000'};
 `;
 
 export { Scene };
 export { Cube };
 export { CubeFace };
-export default { Scene, Cube, CubeFace };
+export { CubeFaceEmpty };
+export default { Scene, Cube, CubeFace, CubeFaceEmpty };

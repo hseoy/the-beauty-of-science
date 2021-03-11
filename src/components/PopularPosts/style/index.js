@@ -27,7 +27,7 @@ const PostsWrap = styled.div`
   max-width: 1160px;
   height: 350px;
   overflow: hidden;
-  padding: 30px 160px 0 160px;
+  padding: 30px 40px 0 40px;
   margin: 0 auto;
   position: relative;
 `;
