@@ -25,6 +25,7 @@ const InputWrap = styled.div`
 `;
 
 const QuizUploadButtonWrap = styled.div`
+  margin-top: auto;
   height: 100px;
   position: relative;
   display: flex;
