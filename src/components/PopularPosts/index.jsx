@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SlideCube from 'components/SlideCube';
+import Rect from 'react-3d-rect';
 import PostCard from 'components/PostCard';
 import S from './style';
 
@@ -12,7 +12,7 @@ const PopularPosts = () => {
   };
 
   const prevSlide = () => {
-    setCurrentFace(currentFace - 1 >= 0 ? currentFace - 1 : 4);
+    setCurrentFace(currentFace - 1 >= 0 ? currentFace - 1 : 3);
   };
 
   const setSlideIndex = num => () => {
@@ -42,7 +42,7 @@ const PopularPosts = () => {
       </S.TitleWrap>
 
       <S.PostsWrap>
-        <SlideCube index={faces[currentFace]} size={810}>
+        <Rect index={faces[currentFace]} size={810}>
           <>
             {item}
             {item}
@@ -66,7 +66,7 @@ const PopularPosts = () => {
             {item}
             {item}
           </>
-        </SlideCube>
+        </Rect>
         <S.PrevButton onClick={prevSlide}>&#10094;</S.PrevButton>
         <S.NextButton onClick={nextSlide}>&#10095;</S.NextButton>
       </S.PostsWrap>
