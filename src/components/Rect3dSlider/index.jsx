@@ -3,17 +3,10 @@ import PropTypes from 'prop-types';
 import Rect from 'react-3d-rect';
 import S from './style';
 
+const faces = ['face', 'right', 'back', 'left'];
+
 const Rect3dSlider = ({ children, size, height, useDots }) => {
-  let rectFaces = [];
-
-  if (children) {
-    rectFaces = Array.isArray(children)
-      ? [...children].slice(0, 4)
-      : [children];
-  }
-
   const [currentFace, setCurrentFace] = useState(0);
-  const faces = ['face', 'right', 'back', 'left'];
 
   const nextSlide = () => {
     setCurrentFace((currentFace + 1) % 4);
@@ -31,10 +24,7 @@ const Rect3dSlider = ({ children, size, height, useDots }) => {
     <>
       <S.Slider height={height}>
         <Rect index={faces[currentFace]} size={size}>
-          {rectFaces[0]}
-          {rectFaces[1]}
-          {rectFaces[2]}
-          {rectFaces[3]}
+          {children}
         </Rect>
         <S.PrevButton onClick={prevSlide}>&#10094;</S.PrevButton>
         <S.NextButton onClick={nextSlide}>&#10095;</S.NextButton>
@@ -62,7 +52,7 @@ Rect3dSlider.propTypes = {
 };
 
 Rect3dSlider.defaultProps = {
-  children: [],
+  children: null,
   size: 500,
   height: 500,
   useDots: true,
