@@ -16,10 +16,10 @@ const HomeElement = ({ children, width, title, subtitle }) => {
 };
 
 HomeElement.propTypes = {
-  children: PropTypes.oneOf(
-    [PropTypes.arrayOf(PropTypes.node)],
+  children: PropTypes.oneOfType([
     PropTypes.node,
-  ),
+    PropTypes.arrayOf(PropTypes.node),
+  ]),
   width: PropTypes.string,
   title: PropTypes.string,
   subtitle: PropTypes.string,
