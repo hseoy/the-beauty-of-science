@@ -1,4 +1,4 @@
-import { calcRem, pxToRem, fontFace } from './utils';
+import { calcRem, pxToRem } from './utils';
 
 const fontFamiyBase = `'NanumSquareR', 'NanumBarunpenR', sans-serif`;
 const fontFamilyAccent = `'TmonTium', 'TmonMonsori', ${fontFamiyBase}`;
@@ -16,7 +16,6 @@ const font = {
 };
 
 const utils = {
-  fontFace,
   calcRem,
   pxToRem,
 };

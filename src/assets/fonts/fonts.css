@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'TmonMonsori';
+  src: url('assets/fonts/TMON/TMONBlack.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'TmonTium';
+  src: url('assets/fonts/TMON/TMONTium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BlackOpsOneR';
+  src: url('assets/fonts/Black_Ops_One/BlackOpsOne-Regular.ttf')
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'NanumSquareL';
+  src: url('assets/fonts/NanumSquareL.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'NanumSquareR';
+  src: url('assets/fonts/NanumSquareR.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'NanumBarunpenR';
+  src: url('assets/fonts/NanumBarunpenR.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'NanumBarunpenB';
+  src: url('assets/fonts/NanumBarunpenB.woff') format('woff');
+}
