@@ -42,7 +42,7 @@ Input.defaultProps = {
   type: 'text',
   placeholder: '',
   autocomplete: 'on',
-  valueChangeHandler: undefined,
+  valueChangeHandler: null,
 };
 
 export default Input;

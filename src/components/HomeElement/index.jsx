@@ -26,7 +26,7 @@ HomeElement.propTypes = {
 };
 
 HomeElement.defaultProps = {
-  children: '',
+  children: null,
   width: '100%',
   title: '',
   subtitle: '',

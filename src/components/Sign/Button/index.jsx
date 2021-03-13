@@ -18,7 +18,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   children: '',
-  clickHandler: undefined,
+  clickHandler: null,
 };
 
 export default Button;

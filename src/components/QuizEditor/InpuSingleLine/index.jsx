@@ -24,7 +24,7 @@ InputSingleLine.propTypes = {
 };
 
 InputSingleLine.defaultProps = {
-  valueChangeHandler: undefined,
+  valueChangeHandler: null,
   value: '',
   title: '',
 };

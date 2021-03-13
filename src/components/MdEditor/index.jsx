@@ -32,7 +32,7 @@ MdEditor.propTypes = {
 };
 
 MdEditor.defaultProps = {
-  valueChangeHandler: undefined,
+  valueChangeHandler: null,
   mdText: '# Hello Everyone',
 };
 

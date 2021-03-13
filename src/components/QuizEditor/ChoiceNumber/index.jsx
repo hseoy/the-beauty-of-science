@@ -34,7 +34,7 @@ ChoiceNumber.propTypes = {
 ChoiceNumber.defaultProps = {
   title: '',
   count: 0,
-  valueChangeHandler: undefined,
+  valueChangeHandler: null,
   value: 0,
 };
 

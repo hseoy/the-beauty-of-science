@@ -93,14 +93,14 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
-  closeHandler: undefined,
+  closeHandler: null,
   maskClosable: true,
   closable: true,
   visible: false,
   useTemplate: false,
   title: '',
   button: '',
-  checkHandler: undefined,
+  checkHandler: null,
   customInner: false,
   bgColor: '',
   bdColor: '',

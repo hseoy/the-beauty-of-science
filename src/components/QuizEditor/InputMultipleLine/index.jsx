@@ -23,7 +23,7 @@ InputMultipleLine.propTypes = {
 };
 
 InputMultipleLine.defaultProps = {
-  valueChangeHandler: undefined,
+  valueChangeHandler: null,
   value: '',
   title: '',
 };
