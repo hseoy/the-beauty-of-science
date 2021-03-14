@@ -2,6 +2,13 @@ import { createGlobalStyle } from 'styled-components';
 import 'assets/fonts/fonts.css';
 
 const globalStyle = createGlobalStyle`
+  #root {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    position: relative;
+  }
+
   :hover, :focus {
     outline: none;
   }
@@ -9,8 +16,14 @@ const globalStyle = createGlobalStyle`
   html, body {
     width: 100%;
     min-width: 1550px;
-    min-height: 100%;
+    height: 100%;
     font-family: 'NanumSquareR', 'NanumBarunpenR', sans-serif;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
   }
 
   body, h1, h2, h3, h4, h5, h6,
@@ -41,6 +54,11 @@ const globalStyle = createGlobalStyle`
 
   img, input, button {
     vertical-align: middle;
+  }
+
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   }
 `;
 
