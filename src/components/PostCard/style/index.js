@@ -64,8 +64,7 @@ const AuthorLevel = styled.span`
   width: 100%;
   text-align: center;
   border: 3px solid ${({ theme }) => theme.colors.accentColor || '#000'};
-  font-family: 'BlackOpsOneR',
-    ${({ theme }) => theme.font.family.base || 'sans-seif'};
+  font-family: ${({ theme }) => theme.font.family.special || 'sans-seif'};
 `;
 
 export { Wrap };
