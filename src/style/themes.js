@@ -2,6 +2,7 @@ import { calcRem, pxToRem } from './utils';
 
 const fontFamiyBase = `'NanumSquareR', 'NanumBarunpenR', sans-serif`;
 const fontFamilyAccent = `'TmonTium', 'TmonMonsori', ${fontFamiyBase}`;
+const fontFamilySpecial = `'BlackOpsOneR', ${fontFamilyAccent}`;
 
 const font = {
   size: {
@@ -12,6 +13,7 @@ const font = {
   family: {
     base: fontFamiyBase,
     accent: fontFamilyAccent,
+    special: fontFamilySpecial,
   },
 };
 

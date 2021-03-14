@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import PopularPosts from 'components/PopularPosts';
+import TopUserPodium from 'components/TopUserPodium';
 import S from './style';
 
 const Home = ({ isSigned }) => {
@@ -13,6 +14,7 @@ const Home = ({ isSigned }) => {
       <S.ContentWrap>
         <S.Content>
           <PopularPosts />
+          <TopUserPodium />
         </S.Content>
       </S.ContentWrap>
 
