@@ -7,19 +7,10 @@ const ButtonContent = styled.div`
   transform-style: preserve-3d;
   width: 100%;
   line-height: 42px;
-
-  ${({ theme }) =>
-    theme.colors.primaryColor &&
-    css`
-      background-color: ${theme.colors.primaryColor};
-    `}
-
-  ${({ theme }) =>
-    theme.colors.accentColor &&
-    css`
-      color: ${theme.colors.accentColor};
-      border: 3px solid ${theme.colors.accentColor};
-    `}
+  background-color: ${({ theme }) => theme.colors.primaryColor || '#fff'};
+  color: ${({ theme }) => theme.colors.accentColor || '#000'};
+  border: 3px solid ${({ theme }) => theme.colors.accentColor || '#000'};
+  font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
 
   &:after {
     content: '${props => props.hiddenTitle || 'Hello World'}';
@@ -30,22 +21,12 @@ const ButtonContent = styled.div`
     transform-origin: 50% 0;
     transform: translate3d(0px, 105%, 0px) rotateX(-90deg);
     width: 100%;
-    ${({ theme }) =>
-      theme.colors.primaryColor &&
-      css`
-        color: ${theme.colors.primaryColor};
-      `}
-
-    ${({ theme }) =>
-      theme.colors.accentColor &&
-      css`
-        background-color: ${theme.colors.accentColor};
-      `}
+    color: ${({ theme }) => theme.colors.primaryColor || '#fff'};
+    background-color: ${({ theme }) => theme.colors.accentColor || '#000'};
   }
 `;
 
 const Button = styled.button`
-  font-family: 'TmonTium', 'TmonMonsori', sans-serif;
   font-size: 1.2em;
   width: 200px;
   height: 50px;
@@ -71,11 +52,7 @@ const Button = styled.button`
 
   &:hover ${ButtonContent} {
     &:after {
-      ${({ theme }) =>
-        theme.colors.accentColor &&
-        css`
-          background-color: ${theme.colors.accentColor};
-        `}
+      background-color: ${({ theme }) => theme.colors.accentColor || '#000'};
     }
     transform: translate3d(0px, 0px, -30px) rotateX(90deg);
   }
