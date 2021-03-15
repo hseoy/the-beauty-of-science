@@ -9,7 +9,7 @@ const PostContentCss = css`
   h4,
   h5,
   h6 {
-    font-family: ${({ theme }) => theme.font.family.acccent || 'sans-seif'};
+    font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
     line-height: 1.25;
     margin-bottom: 16px;
     margin-top: 24px;
