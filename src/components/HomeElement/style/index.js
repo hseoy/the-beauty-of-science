@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Wrap = styled.div`
   position: relative;
-  margin-bottom: 50px;
+  margin: 0 10px;
   width: ${props => props.width || '100%'};
 `;
 
@@ -25,7 +25,6 @@ const SubTitle = styled.span`
 
 const ContentWrap = styled.div`
   width: 100%;
-  height: 100%;
   overflow: hidden;
   padding: 30px 0px;
 `;
