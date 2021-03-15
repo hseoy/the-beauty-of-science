@@ -4,7 +4,8 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 import PopularPosts from 'components/PopularPosts';
 import TopUserPodium from 'components/TopUserPodium';
-import S from './style';
+import TodayPopularQuiz from 'components/TodayPopularQuiz';
+import * as S from './style';
 
 const Home = ({ isSigned }) => {
   return (
@@ -13,8 +14,15 @@ const Home = ({ isSigned }) => {
 
       <S.ContentWrap>
         <S.Content>
-          <PopularPosts />
-          <TopUserPodium />
+          <S.Column>
+            <S.Row>
+              <PopularPosts />
+            </S.Row>
+            <S.Row>
+              <TopUserPodium />
+              <TodayPopularQuiz signed={isSigned} />
+            </S.Row>
+          </S.Column>
         </S.Content>
       </S.ContentWrap>
 
