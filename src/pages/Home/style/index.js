@@ -1,15 +1,22 @@
 import styled from 'styled-components';
 
-const ContentWrap = styled.div`
+export const ContentWrap = styled.div`
   width: 80%;
   max-width: 1240px;
   margin: 0 auto;
 `;
 
-const Content = styled.div`
+export const Content = styled.div`
   padding: 40px 40px 50px 40px;
 `;
 
-export { ContentWrap };
-export { Content };
-export default { ContentWrap, Content };
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 50px;
+`;
+
+export const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
