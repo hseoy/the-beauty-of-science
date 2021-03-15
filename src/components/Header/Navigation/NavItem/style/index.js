@@ -10,17 +10,8 @@ const NavSubItemWrap = styled.div`
   width: 300px;
   margin-left: -90px;
   z-index: 999;
-
-  ${({ theme }) =>
-    theme.colors.primaryColor &&
-    css`
-      background-color: ${theme.colors.primaryColor};
-    `}
-  ${({ theme }) =>
-    theme.colors.accentColor &&
-    css`
-      border: 3px solid ${theme.colors.accentColor};
-    `}
+  background-color: ${({ theme }) => theme.colors.primaryColor || '#fff'};
+  border: 3px solid ${({ theme }) => theme.colors.accentColor || '#000'};
 `;
 
 const NavSubItemLink = styled(Link)`
@@ -29,28 +20,16 @@ const NavSubItemLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: ${({ theme }) => theme.colors.accentColor || '#000'};
+  font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
 
   &:hover {
-    ${({ theme }) =>
-      theme.colors.accentColor &&
-      css`
-        background-color: ${theme.colors.accentColor};
-      `}
-    ${({ theme }) =>
-      theme.colors.primaryColor &&
-      css`
-        color: ${theme.colors.primaryColor};
-      `}
+    background-color: ${({ theme }) => theme.colors.accentColor || '#000'};
+    color: ${({ theme }) => theme.colors.primaryColor || '#fff'};
   }
-
-  ${({ theme }) =>
-    theme.colors.accentColor &&
-    css`
-      color: ${theme.colors.accentColor};
-      &:not(:last-child) {
-        border-bottom: 2px solid ${theme.colors.accentColor};
-      }
-    `}
+  &:not(:last-child) {
+    border-bottom: 2px solid ${({ theme }) => theme.colors.accentColor};
+  }
 `;
 
 const NavItemLink = styled(Link)`
@@ -61,11 +40,8 @@ const NavItemLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${({ theme }) =>
-    theme.colors.accentColor &&
-    css`
-      color: ${theme.colors.accentColor};
-    `}
+  color: ${({ theme }) => theme.colors.accentColor || '#000'};
+  font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
 `;
 
 const NavItemWrap = styled.div`
@@ -86,11 +62,8 @@ const NavItemWrap = styled.div`
         `}
     }
     ${NavItemLink} {
-      ${({ theme }) =>
-        theme.colors.accentColor &&
-        css`
-          border-bottom: 3px solid ${theme.colors.accentColor};
-        `};
+      border-bottom: 3px solid
+        ${({ theme }) => theme.colors.accentColor || '#000'};
     }
   }
   ${props =>

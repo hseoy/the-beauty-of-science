@@ -6,8 +6,6 @@ const Wrap = styled.div`
     css`
       background-color: ${theme.colors.primaryColor};
     `}
-
-  font-family: 'TmonTium', 'TmonMonsori', sans-serif;
   text-align: center;
 `;
 

@@ -3,34 +3,19 @@ import { Link } from 'react-router-dom';
 
 const SignLinkCss = css`
   transition: 0.12s;
-  ${({ theme }) =>
-    theme.colors.primaryColor &&
-    css`
-      background-color: ${theme.colors.primaryColor};
-    `}
-  ${({ theme }) =>
-    theme.colors.accentColor &&
-    css`
-      color: ${theme.colors.accentColor};
-      border: 3px solid ${theme.colors.accentColor};
-    `}
+  background-color: ${({ theme }) => theme.colors.primaryColor || '#fff'};
+  color: ${({ theme }) => theme.colors.accentColor || '#000'};
+  border: 3px solid ${({ theme }) => theme.colors.accentColor || '#000'};
   border-radius: 3px;
   width: 90px;
   padding: 8px 0px;
   display: inline-block;
+  font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
 
   &:hover {
     text-decoration: none;
-    ${({ theme }) =>
-      theme.colors.accentColor &&
-      css`
-        background-color: ${theme.colors.accentColor};
-      `}
-    ${({ theme }) =>
-      theme.colors.primaryColor &&
-      css`
-        color: ${theme.colors.primaryColor};
-      `}
+    background-color: ${({ theme }) => theme.colors.accentColor || '#000'};
+    color: ${({ theme }) => theme.colors.primaryColor || '#fff'};
   }
 `;
 

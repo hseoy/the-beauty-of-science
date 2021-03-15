@@ -23,6 +23,7 @@ const MainTitle = styled.h1`
   letter-spacing: 20px;
   padding-left: 20px;
   margin-bottom: 5px;
+  font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
 `;
 
 const SubTitle = styled.h2`
@@ -30,6 +31,7 @@ const SubTitle = styled.h2`
   letter-spacing: 1.25px;
   padding-left: 1.25px;
   padding-top: 30px;
+  font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
 `;
 
 export { Wrap };
