@@ -50,6 +50,7 @@ const NavItemWrap = styled.div`
   margin: 0 50px;
   height: 35px;
   width: 120px;
+
   &:hover {
     ${NavSubItemWrap} {
       display: block;
@@ -75,7 +76,7 @@ const NavItemWrap = styled.div`
         }
 
         to {
-          height: ${`${props.subItemCount * 50 + 6}px` || 'auto'};
+          height: ${`${props.subItemCount * 52 + 4}px` || 'auto'};
         }
       }
     `}
