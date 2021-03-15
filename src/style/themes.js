@@ -43,6 +43,8 @@ const device = {
 const colors = {
   whiteColor: '#fff',
   textColor: '#1e1e1e',
+  bgColor: '#fff',
+  grayColor: '#ddd',
   primaryColor: '#FFC400',
   accentColor: '#000000',
 };

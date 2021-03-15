@@ -17,7 +17,6 @@ const globalStyle = createGlobalStyle`
     width: 100%;
     min-width: 1550px;
     height: 100%;
-    font-family: 'NanumSquareR', 'NanumBarunpenR', sans-serif;
   }
 
   body {
@@ -35,6 +34,7 @@ const globalStyle = createGlobalStyle`
     box-sizing: border-box;
     border: none;
     outline: none;
+    font-family: 'NanumSquareR', 'NanumBarunpenR', sans-serif;
   }
 
   button {
