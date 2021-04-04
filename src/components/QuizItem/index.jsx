@@ -38,12 +38,10 @@ const QuizItem = ({ signed, quiz }) => {
         <S.QuizTitle>{title}</S.QuizTitle>
         {!showCommentary &&
           (!submitted ? (
-            <>
-              <Answers
-                answerlist={quizAnswers}
-                answerClickHandler={isSubmitted}
-              />
-            </>
+            <Answers
+              answerlist={quizAnswers}
+              answerClickHandler={isSubmitted}
+            />
           ) : (
             <Result
               isRight={isRight}
