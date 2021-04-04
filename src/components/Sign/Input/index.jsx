@@ -2,17 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import S from './style';
 
-const Input = ({
-  title,
-  type,
-  placeholder,
-  autocomplete,
-  valueChangeHandler,
-}) => {
-  const inputChangeHandler = event => {
-    const { value } = event.target;
-    if (valueChangeHandler) {
-      valueChangeHandler(value);
+const Input = ({ title, type, name, placeholder, autoComplete, onChange }) => {
+  const onChangeHandler = event => {
+    if (onChange) {
+      onChange(event);
     }
   };
   return (
@@ -21,9 +14,10 @@ const Input = ({
       <S.Input
         title={placeholder}
         type={type}
+        name={name}
         placeholder={placeholder}
-        autocomplete={autocomplete}
-        onChange={inputChangeHandler}
+        autoComplete={autoComplete}
+        onChange={onChangeHandler}
       />
     </S.InputBox>
   );
@@ -32,17 +26,19 @@ const Input = ({
 Input.propTypes = {
   title: PropTypes.string,
   type: PropTypes.string,
+  name: PropTypes.string,
   placeholder: PropTypes.string,
-  autocomplete: PropTypes.string,
-  valueChangeHandler: PropTypes.func,
+  autoComplete: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 Input.defaultProps = {
   title: '',
   type: 'text',
+  name: '',
   placeholder: '',
-  autocomplete: 'on',
-  valueChangeHandler: null,
+  autoComplete: 'off',
+  onChange: null,
 };
 
 export default Input;

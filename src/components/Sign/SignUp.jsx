@@ -5,10 +5,22 @@ import Input from './Input';
 import S from './style';
 
 const SignUp = ({ title }) => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [repassword, setRepassword] = useState('');
+  const [form, setForm] = useState({
+    username: '',
+    email: '',
+    password: '',
+    repassword: '',
+  });
+
+  const onChange = e => {
+    const nextForm = {
+      ...form,
+      [e.target.name]: e.target.value,
+    };
+    setForm(nextForm);
+  };
+
+  const { username, email, password, repassword } = form;
 
   const onSubmitSignIn = () => {
     console.log(username, email, password, repassword);
@@ -22,26 +34,30 @@ const SignUp = ({ title }) => {
           <Input
             title="NAME"
             type="text"
+            name="username"
             placeholder="Enter your name..."
-            valueChangeHandler={setUsername}
+            onChange={onChange}
           />
           <Input
             title="EMAIL"
             type="email"
+            name="email"
             placeholder="Enter your email..."
-            valueChangeHandler={setEmail}
+            onChange={onChange}
           />
           <Input
             title="PW"
             type="password"
+            name="password"
             placeholder="Enter your password..."
-            valueChangeHandler={setPassword}
+            onChange={onChange}
           />
           <Input
             title="Re-PW"
             type="password"
+            name="repassword"
             placeholder="Confirm your password..."
-            valueChangeHandler={setRepassword}
+            onChange={onChange}
           />
           <Button clickHandler={onSubmitSignIn}>Sign Up</Button>
         </S.Body>
