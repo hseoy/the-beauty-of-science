@@ -1,26 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
-import PopularPosts from 'components/PopularPosts';
-import TopUserPodium from 'components/TopUserPodium';
-import TodayPopularQuiz from 'components/TodayPopularQuiz';
+import Header from 'components/base/Header';
+import Footer from 'components/base/Footer';
+// import PopularPosts from 'components/PopularPosts';
+// import TopUserPodium from 'components/TopUserPodium';
+// import TodayPopularQuiz from 'components/TodayPopularQuiz';
+import HoverButton from 'components/common/HoverButton';
 import * as S from './style';
 
 const Home = ({ isSigned }) => {
+  // const user = {
+  //   userid: 'HELLO',
+  //   username: 'Yunseo Hwang',
+  //   avatar:
+  //     'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
+  // };
+  const user = null;
   return (
     <>
-      <Header isSigned={isSigned} />
-
+      <Header user={user} isSigned={isSigned} />
+      <HoverButton hiddenTitle="secret">Hello World</HoverButton>
       <S.ContentWrap>
         <S.Content>
           <S.Column>
+            <S.Row>{/* <PopularPosts /> */}</S.Row>
             <S.Row>
-              <PopularPosts />
-            </S.Row>
-            <S.Row>
-              <TopUserPodium />
-              <TodayPopularQuiz signed={isSigned} />
+              {/* <TopUserPodium />
+              <TodayPopularQuiz signed={isSigned} /> */}
             </S.Row>
           </S.Column>
         </S.Content>

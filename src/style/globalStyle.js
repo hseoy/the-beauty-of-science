@@ -23,6 +23,7 @@ const globalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
+    font-family: 'NanumSquareR', 'NanumBarunpenR', sans-serif;
   }
 
   body, h1, h2, h3, h4, h5, h6,
@@ -34,7 +35,6 @@ const globalStyle = createGlobalStyle`
     box-sizing: border-box;
     border: none;
     outline: none;
-    font-family: 'NanumSquareR', 'NanumBarunpenR', sans-serif;
   }
 
   button {
