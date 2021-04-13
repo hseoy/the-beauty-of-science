@@ -5,8 +5,8 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import App from 'shared/App';
-import themes from 'style/themes';
-import GlobalStyle from 'style/globalStyle';
+import themes from 'lib/styles/themes';
+import GlobalStyle from 'GlobalStyle';
 import rootReducer from 'modules';
 
 const store = createStore(rootReducer, composeWithDevTools());
