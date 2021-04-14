@@ -5,7 +5,6 @@ import Footer from 'components/base/Footer';
 // import PopularPosts from 'components/PopularPosts';
 // import TopUserPodium from 'components/TopUserPodium';
 // import TodayPopularQuiz from 'components/TodayPopularQuiz';
-import HoverButton from 'components/common/HoverButton';
 import * as S from './style';
 
 const Home = ({ isSigned }) => {
@@ -19,7 +18,6 @@ const Home = ({ isSigned }) => {
   return (
     <>
       <Header user={user} isSigned={isSigned} />
-      <HoverButton hiddenTitle="secret">Hello World</HoverButton>
       <S.ContentWrap>
         <S.Content>
           <S.Column>
