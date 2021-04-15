@@ -1,19 +1,31 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Select from 'components/common/Select';
+import { CATEGORIES } from 'lib/constants';
 import Editor from './Editor';
 import MdEditor from './MdEditor';
 
 const PostEditor = ({ post, onChange }) => {
+  const categories = useMemo(
+    () =>
+      CATEGORIES.map(c => ({
+        value: c.title.toLowerCase(),
+        label: c.title,
+      })),
+    [],
+  );
+
   const onChangeHandler = name => e => {
     if (onChange) {
       onChange({ [name]: e.target.value, ...post });
     }
   };
-  // @TODO Category Select Box
+
   return (
     <Editor button={`Submit - ${post.category}`}>
       <PostEditorBlock>
+        <Select options={categories} width="10rem" />
         <div className="title">
           <input
             type="text"
@@ -78,3 +90,5 @@ const PostEditorBlock = styled.div`
     height: calc(100% - 206px);
   }
 `;
+
+export default PostEditor;

@@ -35,8 +35,8 @@ Editor.defaultProps = {
 };
 
 const EditorBlock = styled.div`
-  width: 80vw;
-  height: 80vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 
@@ -48,3 +48,5 @@ const EditorBlock = styled.div`
     height: 100px;
   }
 `;
+
+export default Editor;
