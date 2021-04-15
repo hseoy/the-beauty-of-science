@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import LinkButton from 'components/common/LinkButton';
-import { NAV_ITEMS } from './constants';
+import { NAV_ITEMS } from '../../lib/constants';
 import HeaderTitle from './HeaderTitle';
 import HeaderUser from './HeaderUser';
 import HeaderNav from './HeaderNav';
