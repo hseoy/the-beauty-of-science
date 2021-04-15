@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Button = ({ transition, children, ...rest }) => {
+const Button = ({ transition, fontSize, children, ...rest }) => {
   return (
     <StyledButton
       $transition={transition}
       {...rest}
+      $fontSize={fontSize}
       $morepadding={typeof children === 'string'}
     >
       {children}
@@ -20,11 +21,13 @@ Button.propTypes = {
     PropTypes.node,
   ]),
   transition: PropTypes.string,
+  fontSize: PropTypes.string,
 };
 
 Button.defaultProps = {
   children: null,
-  transition: '0s',
+  transition: '',
+  fontSize: '',
 };
 
 const StyledButton = styled.button`
@@ -38,6 +41,7 @@ const StyledButton = styled.button`
   border-radius: 3px;
   padding: 0.5rem ${props => (props.$morepadding ? '1rem' : '0.4rem')};
   font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
+  font-size: ${props => props.$fontSize || '1rem'};
 
   &:hover {
     text-decoration: none;
