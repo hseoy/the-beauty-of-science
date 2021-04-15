@@ -1,21 +1,41 @@
-import React from 'react';
+import React, { useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Options = ({ option, optionList, onChange, left, right, center }) => {
-  const onChangeHandler = op => () => {
-    if (onChange) {
-      onChange(op);
-    }
-  };
+const Options = ({
+  option,
+  optionList,
+  onChange,
+  left,
+  right,
+  center,
+  borderRadius,
+}) => {
+  const onChangeHandler = useCallback(
+    op => () => {
+      if (onChange) {
+        onChange(op);
+      }
+    },
+    [],
+  );
 
-  const options = optionList.map(op => {
-    return (
-      <Option $active={option === op} onClick={onChangeHandler(op)} key={op}>
-        {op}
-      </Option>
-    );
-  });
+  const options = useMemo(
+    () =>
+      optionList.map(op => {
+        return (
+          <Option
+            $active={option === op}
+            onClick={onChangeHandler(op)}
+            key={op}
+            $borderRadius={borderRadius}
+          >
+            {op}
+          </Option>
+        );
+      }),
+    [optionList],
+  );
 
   const align =
     (left && 'flex-start') || (right && 'flex-end') || (center && 'center');
@@ -29,6 +49,7 @@ Options.propTypes = {
   left: PropTypes.bool,
   right: PropTypes.bool,
   center: PropTypes.bool,
+  borderRadius: PropTypes.string,
 };
 
 Options.defaultProps = {
@@ -38,32 +59,35 @@ Options.defaultProps = {
   left: false,
   right: true,
   center: false,
+  borderRadius: '',
 };
 
 const OptionsBlock = styled.div`
   display: flex;
   justify-content: ${props => props.$align || 'flex-end'};
   padding: 0 0 10px;
+  width: 100%;
 `;
 
 const Option = styled.button`
-  border: 1px solid ${({ theme }) => theme.colors.grayColor || '#ddd'};
-  background-color: ${props =>
-    props.$active
-      ? props.theme.colors.textColor || '#1e1e1e'
-      : props.theme.colors.bgColor || '#fff'};
-  color: ${props =>
-    props.$active
-      ? props.theme.colors.bgColor || '#fff'
-      : props.theme.colors.textColor || '#1e1e1e'};
-  border-radius: 2rem;
+  border: 3px solid ${({ theme }) => theme.colors.accentColor || '#000'};
+  border-radius: ${props => props.$borderRadius || '50%'};
   padding: 5px 10px;
   margin: 0 10px;
   transition: 0.2s;
+  background-color: ${props =>
+    props.$active
+      ? props.theme.colors.accentColor || '#000'
+      : props.theme.colors.primaryColor || '#fff'};
+  color: ${props =>
+    props.$active
+      ? props.theme.colors.primaryColor || '#fff'
+      : props.theme.colors.accentColor || '#000'};
+  font-family: ${({ theme }) => theme.font.family.accent || 'sans-serif'};
 
   &:hover {
-    color: ${props => props.theme.colors.bgColor || '#fff'};
-    background-color: ${props => props.theme.colors.textColor || '#1e1e1e'};
+    color: ${props => props.theme.colors.primaryColor || '#fff'};
+    background-color: ${props => props.theme.colors.accentColor || '#000'};
   }
 `;
 
