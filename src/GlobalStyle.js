@@ -1,7 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
+import hexRgb from 'hex-rgb';
 import 'assets/fonts/fonts.css';
 
 const globalStyle = createGlobalStyle`
+  ::selection {
+    background-color: ${({ theme }) =>
+      hexRgb(theme.colors.accentColor || '#000', {
+        format: 'css',
+        alpha: 0.99,
+      })};
+    color: ${({ theme }) => theme.colors.primaryColor || '#fff'};
+  }
+
   #root {
     width: 100%;
     height: 100%;
@@ -23,7 +33,7 @@ const globalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
-    font-family: 'NanumSquareR', 'NanumBarunpenR', sans-serif;
+    font-family: ${({ theme }) => theme.font.family.base || 'sans-serif'};
   }
 
   body, h1, h2, h3, h4, h5, h6,
