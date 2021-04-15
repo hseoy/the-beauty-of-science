@@ -10,20 +10,24 @@ const commonStyle = theme => ({
 });
 
 const selectStyles = theme => ({
-  control: styles => ({
+  control: (styles, { isFocused }) => ({
     ...styles,
     ...commonStyle(theme),
-    border: `3px solid ${theme.colors.accentColor || '#fff'}`,
-    boxShadow: 'none',
+    transition: '0.3s',
+    boxShadow: isFocused
+      ? `0 0 0 5px ${theme.colors.primaryColor || '#fff'}`
+      : 'none',
+    border: `3px solid ${theme.colors.accentColor || '#000'}`,
     ':hover': {
-      borderColor: theme.colors.accentColor || '#fff',
+      borderColor: theme.colors.accentColor || '#000',
+      boxShadow: `0 0 0 5px ${theme.colors.primaryColor || '#fff'}`,
     },
     cursor: 'pointer',
   }),
   menuList: styles => ({
     ...styles,
     ...commonStyle(theme),
-    border: `3px solid ${theme.colors.accentColor || '#fff'}`,
+    border: `3px solid ${theme.colors.accentColor || '#000'}`,
   }),
   option: (styles, { isFocused }) => ({
     ...styles,
@@ -33,8 +37,8 @@ const selectStyles = theme => ({
       ? theme.colors.accentColor || '#000'
       : theme.colors.primaryColor || '#fff',
     color: isFocused
-      ? theme.colors.primaryColor || '#000'
-      : theme.colors.accentColor || '#fff',
+      ? theme.colors.primaryColor || '#fff'
+      : theme.colors.accentColor || '#000',
     cursor: 'pointer',
   }),
   singleValue: styles => ({
@@ -50,6 +54,9 @@ const selectStyles = theme => ({
   dropdownIndicator: styles => ({
     ...styles,
     color: theme.colors.accentColor || '#000',
+    ':hover': {
+      color: theme.colors.accentColor || '#000',
+    },
   }),
 });
 
