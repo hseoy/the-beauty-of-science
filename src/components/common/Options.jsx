@@ -38,7 +38,7 @@ const Options = ({
   );
 
   const align =
-    (left && 'flex-start') || (right && 'flex-end') || (center && 'center');
+    (center && 'center') || (left && 'flex-start') || (right && 'flex-end');
   return <OptionsBlock $align={align}>{options}</OptionsBlock>;
 };
 
@@ -57,14 +57,14 @@ Options.defaultProps = {
   optionList: [],
   onChange: null,
   left: false,
-  right: true,
+  right: false,
   center: false,
   borderRadius: '',
 };
 
 const OptionsBlock = styled.div`
   display: flex;
-  justify-content: ${props => props.$align || 'flex-end'};
+  justify-content: ${props => props.$align || 'center'};
   padding: 0 0 10px;
   width: 100%;
 `;
