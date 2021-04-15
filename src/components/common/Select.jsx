@@ -40,6 +40,10 @@ const selectStyles = theme => ({
       ? theme.colors.primaryColor || '#fff'
       : theme.colors.accentColor || '#000',
     cursor: 'pointer',
+    ':active': {
+      backgroundColor: theme.colors.accentColor || '#000',
+      color: theme.colors.primaryColor || '#fff',
+    },
   }),
   singleValue: styles => ({
     ...styles,
