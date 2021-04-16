@@ -17,7 +17,7 @@ const Options = ({
         onChange(op);
       }
     },
-    [],
+    [onChange],
   );
 
   const options = useMemo(
@@ -34,7 +34,7 @@ const Options = ({
           </Option>
         );
       }),
-    [optionList],
+    [optionList, option, onChange, borderRadius],
   );
 
   const align =
