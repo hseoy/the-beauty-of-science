@@ -55,6 +55,7 @@ const QuizEditor = ({ quiz, onChange }) => {
         <QuizEditorInput $title="Right Answer">
           <NmberOptions
             option={quiz.rightAnswer}
+            start={1}
             count={4}
             center
             onChange={onChangeHandler('rightAnswer')}
@@ -72,7 +73,7 @@ const QuizEditor = ({ quiz, onChange }) => {
         <QuizEditorInput $title="Point">
           <NmberOptions
             option={quiz.point}
-            count={5}
+            count={6}
             center
             onChange={onChangeHandler('point')}
           />

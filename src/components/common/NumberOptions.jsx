@@ -25,7 +25,7 @@ const NumberOptions = ({
 
   const options = useMemo(() => {
     const nums = [];
-    for (let i = start; i < count; i += 1) {
+    for (let i = start; i < count + start; i += 1) {
       nums.push(i.toString());
     }
     return nums;
