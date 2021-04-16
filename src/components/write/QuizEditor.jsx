@@ -10,14 +10,26 @@ const QuizEditor = ({ quiz, onChange }) => {
       onChange({
         ...quiz,
         answers: [...quiz.answers],
-        [name]: e?.target?.value ? e.target.value : e,
+        [name]: e.target.value,
       });
     }
   };
-
+  const onNumberChangeHandler = name => num => {
+    if (onChange) {
+      onChange({
+        ...quiz,
+        answers: [...quiz.answers],
+        [name]: num,
+      });
+    }
+  };
   const onChangeAnswersHandler = answerIndex => e => {
-    const nextAnswers = quiz.answers.map((item, i) =>
-      i === answerIndex ? e.target.value : item,
+    const answers = [...quiz.answers];
+    while (answers.length < 4) {
+      answers.push('');
+    }
+    const nextAnswers = answers.map((item, i) =>
+      i === answerIndex ? e.target.value || '' : item,
     );
     if (onChange) {
       onChange({ ...quiz, answers: nextAnswers });
@@ -29,7 +41,7 @@ const QuizEditor = ({ quiz, onChange }) => {
     <QuizEditorInput $title={`Answer ${data.id}`} key={data.id}>
       <input
         type="text"
-        value={quiz.answers[i]}
+        value={quiz.answers[i] || ''}
         onChange={onChangeAnswersHandler(i)}
       />
     </QuizEditorInput>
@@ -58,13 +70,12 @@ const QuizEditor = ({ quiz, onChange }) => {
             start={1}
             count={4}
             center
-            onChange={onChangeHandler('rightAnswer')}
+            onChange={onNumberChangeHandler('rightAnswer')}
           />
         </QuizEditorInput>
 
         <QuizEditorInput $title="Commentary">
           <textarea
-            type="text"
             value={quiz.commentary}
             onChange={onChangeHandler('commentary')}
           />
@@ -75,7 +86,7 @@ const QuizEditor = ({ quiz, onChange }) => {
             option={quiz.point}
             count={6}
             center
-            onChange={onChangeHandler('point')}
+            onChange={onNumberChangeHandler('point')}
           />
         </QuizEditorInput>
       </QuizEditorBlock>
