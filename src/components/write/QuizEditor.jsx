@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import NmberOptions from 'components/common/NumberOptions';
+import NumberOptions from 'components/common/NumberOptions';
 import Editor from './Editor';
 
 const QuizEditor = ({ quiz, onChange }) => {
@@ -65,7 +65,7 @@ const QuizEditor = ({ quiz, onChange }) => {
         <div className="answers">{answerInputs}</div>
 
         <QuizEditorInput $title="Right Answer">
-          <NmberOptions
+          <NumberOptions
             option={quiz.rightAnswer}
             start={1}
             count={4}
@@ -82,7 +82,7 @@ const QuizEditor = ({ quiz, onChange }) => {
         </QuizEditorInput>
 
         <QuizEditorInput $title="Point">
-          <NmberOptions
+          <NumberOptions
             option={quiz.point}
             count={6}
             center
