@@ -27,6 +27,8 @@ const UserPodium = ({
             option={option}
             optionList={optionList}
             onChange={onChangeOption}
+            borderRadius="5px"
+            right
           />
         )}
         <div className="podium">
