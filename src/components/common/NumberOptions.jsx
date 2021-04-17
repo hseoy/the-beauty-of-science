@@ -7,6 +7,7 @@ const NumberOptions = ({
   option,
   start,
   count,
+  nums,
   onChange,
   left,
   right,
@@ -24,12 +25,16 @@ const NumberOptions = ({
   );
 
   const options = useMemo(() => {
-    const nums = [];
-    for (let i = start; i < count + start; i += 1) {
-      nums.push(i.toString());
+    if (Array.isArray(nums) && nums.length > 0) {
+      return nums.filter(num => num).map(num => num.toString());
     }
-    return nums;
-  }, [start, count]);
+
+    const numList = [];
+    for (let i = start; i < count + start; i += 1) {
+      numList.push(i.toString());
+    }
+    return numList;
+  }, [start, count, nums]);
 
   return (
     <NumberOptionsBlock>
@@ -50,6 +55,7 @@ NumberOptions.propTypes = {
   option: PropTypes.number,
   start: PropTypes.number,
   count: PropTypes.number,
+  nums: PropTypes.arrayOf(PropTypes.number),
   onChange: PropTypes.func,
   left: PropTypes.bool,
   right: PropTypes.bool,
@@ -60,6 +66,7 @@ NumberOptions.defaultProps = {
   option: 0,
   start: 0,
   count: 0,
+  nums: [],
   onChange: null,
   left: false,
   right: false,
