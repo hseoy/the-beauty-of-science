@@ -2,59 +2,51 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Podium = ({
-  height1st,
-  height2st,
-  height3st,
-  barTop1st,
-  barTop2st,
-  barTop3st,
-  barBottom1st,
-  barBottom2st,
-  barBottom3st,
-}) => {
+const defaultBars = [
+  { height: '65%', top: '', bottom: '1st' },
+  { height: '45%', top: '', bottom: '2st' },
+  { height: '25%', top: '', bottom: '3st' },
+];
+
+const Podium = ({ bars }) => {
+  const podiumBars = [];
+
+  for (let i = 0; i < 3; i += 1) {
+    podiumBars[i] = { ...defaultBars[i], ...bars[i] };
+  }
+
   return (
     <PodiumBlock>
-      <PodiumBar $height={height2st}>
-        <div className="bar-top">{barTop2st}</div>
-        <div className="bar-bottom">{barBottom2st}</div>
+      <PodiumBar $height={podiumBars[1].height}>
+        <div className="bar-top">{podiumBars[1].top}</div>
+        <div className="bar-bottom">{podiumBars[1].bottom}</div>
       </PodiumBar>
 
-      <PodiumBar $height={height1st}>
-        <div className="bar-top">{barTop1st}</div>
-        <div className="bar-bottom">{barBottom1st}</div>
+      <PodiumBar $height={podiumBars[0].height}>
+        <div className="bar-top">{podiumBars[0].top}</div>
+        <div className="bar-bottom">{podiumBars[0].bottom}</div>
       </PodiumBar>
 
-      <PodiumBar $height={height3st}>
-        <div className="bar-top">{barTop3st}</div>
-        <div className="bar-bottom">{barBottom3st}</div>
+      <PodiumBar $height={podiumBars[2].height}>
+        <div className="bar-top">{podiumBars[2].top}</div>
+        <div className="bar-bottom">{podiumBars[2].bottom}</div>
       </PodiumBar>
     </PodiumBlock>
   );
 };
 
 Podium.propTypes = {
-  height1st: PropTypes.string,
-  height2st: PropTypes.string,
-  height3st: PropTypes.string,
-  barTop1st: PropTypes.string,
-  barTop2st: PropTypes.string,
-  barTop3st: PropTypes.string,
-  barBottom1st: PropTypes.string,
-  barBottom2st: PropTypes.string,
-  barBottom3st: PropTypes.string,
+  bars: PropTypes.arrayOf(
+    PropTypes.shape({
+      height: PropTypes.string,
+      top: PropTypes.string,
+      bottom: PropTypes.string,
+    }),
+  ),
 };
 
 Podium.defaultProps = {
-  height1st: '65%',
-  height2st: '45%',
-  height3st: '25%',
-  barTop1st: '',
-  barTop2st: '',
-  barTop3st: '',
-  barBottom1st: '1st',
-  barBottom2st: '2st',
-  barBottom3st: '3st',
+  bars: [...defaultBars],
 };
 
 const PodiumBlock = styled.div`
@@ -117,3 +109,5 @@ const PodiumBar = styled.div`
     }
   }
 `;
+
+export default Podium;
