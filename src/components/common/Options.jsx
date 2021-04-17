@@ -65,7 +65,6 @@ Options.defaultProps = {
 const OptionsBlock = styled.div`
   display: flex;
   justify-content: ${props => props.$align || 'center'};
-  padding: 0 0 10px;
   width: 100%;
 `;
 
