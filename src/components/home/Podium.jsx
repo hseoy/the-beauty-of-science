@@ -46,7 +46,7 @@ Podium.propTypes = {
 };
 
 Podium.defaultProps = {
-  bars: [...defaultBars],
+  bars: [],
 };
 
 const PodiumBlock = styled.div`
