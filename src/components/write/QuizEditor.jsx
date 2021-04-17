@@ -5,6 +5,16 @@ import NumberOptions from 'components/common/NumberOptions';
 import Editor from './Editor';
 
 const QuizEditor = ({ quiz, onChange }) => {
+  const quizAnswers = [...quiz.answers];
+
+  while (quizAnswers.length < 4) {
+    quizAnswers.push('');
+  }
+
+  const rightAnswerNums = quizAnswers
+    .map((answer, i) => answer && i + 1)
+    .filter(nums => nums);
+
   const onChangeHandler = name => e => {
     if (onChange) {
       onChange({
@@ -14,6 +24,7 @@ const QuizEditor = ({ quiz, onChange }) => {
       });
     }
   };
+
   const onNumberChangeHandler = name => num => {
     if (onChange) {
       onChange({
@@ -23,14 +34,22 @@ const QuizEditor = ({ quiz, onChange }) => {
       });
     }
   };
+
   const onChangeAnswersHandler = answerIndex => e => {
-    const answers = [...quiz.answers];
-    while (answers.length < 4) {
-      answers.push('');
-    }
-    const nextAnswers = answers.map((item, i) =>
+    const nextAnswers = quizAnswers.map((item, i) =>
       i === answerIndex ? e.target.value || '' : item,
     );
+    if (!nextAnswers[quiz.rightAnswer - 1]) {
+      const nextRightAnswerNums = nextAnswers
+        .map((answer, i) => answer && i + 1)
+        .filter(nums => nums);
+      onChange({
+        ...quiz,
+        answers: nextAnswers,
+        rightAnswer: nextRightAnswerNums[0] || 0,
+      });
+      return;
+    }
     if (onChange) {
       onChange({ ...quiz, answers: nextAnswers });
     }
@@ -65,13 +84,19 @@ const QuizEditor = ({ quiz, onChange }) => {
         <div className="answers">{answerInputs}</div>
 
         <QuizEditorInput $title="Right Answer">
-          <NumberOptions
-            option={quiz.rightAnswer}
-            start={1}
-            count={4}
-            center
-            onChange={onNumberChangeHandler('rightAnswer')}
-          />
+          {quiz.answers[0] ||
+          quiz.answers[1] ||
+          quiz.answers[2] ||
+          quiz.answers[3] ? (
+            <NumberOptions
+              option={quiz.rightAnswer}
+              nums={rightAnswerNums}
+              center
+              onChange={onNumberChangeHandler('rightAnswer')}
+            />
+          ) : (
+            <div className="no-answers">Please enter answers</div>
+          )}
         </QuizEditorInput>
 
         <QuizEditorInput $title="Commentary">
@@ -172,6 +197,17 @@ const QuizEditorInput = styled.div`
     overflow-y: auto;
     padding: 0.3125rem;
     border: 3px solid ${({ theme }) => theme.colors.accentColor || '#000'};
+  }
+
+  > .no-answers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0.40625rem 0;
+    font-size: 1rem;
+    font-family: ${({ theme }) => theme.font.family.base || 'sans-seif'};
   }
 `;
 
