@@ -61,3 +61,5 @@ const HomeElementBlock = styled.div`
     padding: 30px 0px;
   }
 `;
+
+export default HomeElement;
