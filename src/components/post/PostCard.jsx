@@ -53,7 +53,6 @@ const PostCardBlock = styled.div`
       display: block;
       width: 100%;
       height: 100%;
-      border-radius: 50%;
       object-fit: cover;
     }
 
@@ -86,6 +85,7 @@ const PostCardBlock = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
+    color: ${({ theme }) => theme.colors.accentColor || '#000'};
 
     > .author-level {
       box-sizing: border-box;
@@ -103,3 +103,5 @@ const PostCardBlock = styled.div`
     }
   }
 `;
+
+export default PostCard;
