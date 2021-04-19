@@ -52,8 +52,8 @@ AuthInput.defaultProps = {
 
 const AuthInputBlock = styled.div`
   width: 100%;
-  height: ${props => props.$height || '3.125rem'};
-  margin: 1.875rem auto;
+  height: ${props => props.$height || '2.5rem'};
+  margin: 1.5625rem auto;
   position: relative;
   display: flex;
   background-color: ${({ theme }) => theme.colors.whiteColor || '#fff'};
@@ -89,11 +89,8 @@ const AuthInputBlock = styled.div`
     font-family: ${({ theme }) => theme.font.family.accent || 'sans-serif'};
 
     &::placeholder {
-      color: ${({ theme }) => lighten(0.8, theme.colors.accentColor || '#000')};
-    }
-
-    &:focus::placeholder {
-      color: transparent;
+      color: ${({ theme }) =>
+        lighten(0.75, theme.colors.accentColor || '#000')};
     }
   }
 `;

@@ -45,8 +45,6 @@ const AuthTemplateBlock = styled.div`
     display: inline-block;
 
     > hgroup {
-      margin-bottom: 30px;
-
       > .main-title {
         font-size: 2.5rem;
         text-align: center;
