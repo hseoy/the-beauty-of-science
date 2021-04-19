@@ -1,13 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const Button = ({ transition, fontSize, children, ...rest }) => {
+const Button = ({
+  transition,
+  fontSize,
+  fullwidth,
+  reverse,
+  hover,
+  padding,
+  children,
+  ...rest
+}) => {
   return (
     <StyledButton
       $transition={transition}
       {...rest}
       $fontSize={fontSize}
+      $fullwidth={fullwidth}
+      $reverse={reverse}
+      $hover={hover}
+      $padding={padding}
       $morepadding={typeof children === 'string'}
     >
       {children}
@@ -22,33 +35,58 @@ Button.propTypes = {
   ]),
   transition: PropTypes.string,
   fontSize: PropTypes.string,
+  padding: PropTypes.string,
+  fullwidth: PropTypes.bool,
+  reverse: PropTypes.bool,
+  hover: PropTypes.bool,
 };
 
 Button.defaultProps = {
   children: null,
   transition: '',
   fontSize: '',
+  padding: '',
+  fullwidth: false,
+  reverse: false,
+  hover: true,
 };
 
 const StyledButton = styled.button`
-  display: inline-flex;
+  display: ${props => (props.$fullwidth ? 'flex' : 'inline-flex')};
+  width: ${props => (props.$fullwidth ? '100%' : 'auto')};
   align-items: center;
   justify-content: center;
   transition: ${props => props.$transition || '0.2s'};
-  background-color: ${({ theme }) => theme.colors.primaryColor || '#fff'};
-  color: ${({ theme }) => theme.colors.accentColor || '#000'};
+  background-color: ${props =>
+    props.$reverse
+      ? props.theme.colors.accentColor || '#000'
+      : props.theme.colors.primaryColor || '#fff'};
+  color: ${props =>
+    props.$reverse
+      ? props.theme.colors.primaryColor || '#fff'
+      : props.theme.colors.accentColor || '#000'};
   border: 3px solid ${({ theme }) => theme.colors.accentColor || '#000'};
   border-radius: 3px;
-  padding: 0.5rem ${props => (props.$morepadding ? '1rem' : '0.4rem')};
   font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
   font-size: ${props => props.$fontSize || '1rem'};
+  padding: ${props =>
+    props.$padding
+      ? props.$padding
+      : `0.5rem ${props.$morepadding ? '1rem' : '0.4rem'}`};
 
-  &:hover {
-    text-decoration: none;
-    background-color: ${({ theme }) => theme.colors.accentColor || '#000'};
-    color: ${({ theme }) => theme.colors.primaryColor || '#fff'};
-  }
-
+  ${props =>
+    props.$hover &&
+    css`
+      &:hover {
+        text-decoration: none;
+        background-color: ${props.$reverse
+          ? props.theme.colors.primaryColor || '#fff'
+          : props.theme.colors.accentColor || '#000'};
+        color: ${props.$reverse
+          ? props.theme.colors.accentColor || '#000'
+          : props.theme.colors.primaryColor || '#fff'};
+      }
+    `}
   & + & {
     margin-left: 0.5rem;
   }
