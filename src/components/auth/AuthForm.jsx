@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import Button from 'components/common/Button';
+import LinkButton from 'components/common/LinkButton';
 import AuthInput from './AuthInput';
 
 const textMap = {
@@ -50,9 +50,9 @@ const AuthForm = ({ type }) => {
       </div>
       <Footer>
         {type === 'signup' ? (
-          <FooterLink to="/signin">Sign In</FooterLink>
+          <RoundLinkButton to="/signin">Sign In</RoundLinkButton>
         ) : (
-          <FooterLink to="/signup">Sign Up</FooterLink>
+          <RoundLinkButton to="/signup">Sign Up</RoundLinkButton>
         )}
       </Footer>
     </AuthFormBlock>
@@ -67,28 +67,19 @@ AuthForm.defaultProps = {
   type: 'signup',
 };
 
-const AuthFormBlock = styled.div``;
+const AuthFormBlock = styled.div`
+  width: 25rem;
+  margin: 0 auto;
+`;
 
 const Footer = styled.footer`
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   text-align: right;
 `;
 
-const FooterLink = styled(Link)`
-  border-radius: 20px;
-  padding: 0 10px;
-  transition: 0.15s;
-  font-size: 16px;
-  font-family: ${({ theme }) => theme.font.family.accent || 'sans-serif'};
-  color: ${({ theme }) => theme.colors.accentColor || '#000'};
-  background-color: ${({ theme }) => theme.colors.primaryColor || '#fff'};
-  border: 3px solid ${({ theme }) => theme.colors.accentColor || '#000'};
-
-  &:hover {
-    text-decoration: none;
-    color: ${({ theme }) => theme.colors.primaryColor || '#fff'};
-    background-color: ${({ theme }) => theme.colors.accentColor || '#000'};
-  }
+const RoundLinkButton = styled(LinkButton)`
+  border-radius: 2rem;
+  padding: 0.25rem 0.8rem;
 `;
 
 export default AuthForm;
