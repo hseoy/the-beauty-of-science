@@ -26,7 +26,9 @@ const LinkButton = ({
     hover={hover}
     padding={padding}
     {...rest}
-  />
+  >
+    {children}
+  </Button>
 );
 
 LinkButton.propTypes = {
