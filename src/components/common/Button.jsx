@@ -70,7 +70,7 @@ const StyledButton = styled.button`
       ? props.theme.colors.primaryColor || '#fff'
       : props.theme.colors.accentColor || '#000'};
   border: 3px solid ${({ theme }) => theme.colors.accentColor || '#000'};
-  border-radius: ${props => props.$boarderRadius || '0'};
+  border-radius: ${props => props.$borderRadius || '0'};
   border-radius: 3px;
   font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
   font-size: ${props => props.$fontSize || '1rem'};
