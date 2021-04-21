@@ -64,7 +64,15 @@ const selectStyles = theme => ({
   }),
 });
 
-const Select = ({ options, name, width, menuPlacement, onChange }) => {
+const Select = ({
+  options,
+  defaultValue,
+  value,
+  name,
+  width,
+  menuPlacement,
+  onChange,
+}) => {
   const themeContext = useContext(ThemeContext);
   const styles = useMemo(() => selectStyles(themeContext), [themeContext]);
   const onChangeHandler = option => {
@@ -78,7 +86,8 @@ const Select = ({ options, name, width, menuPlacement, onChange }) => {
       <ReactSelect
         name={name}
         options={options}
-        defaultValue={options[0]}
+        value={value}
+        defaultValue={defaultValue || options[0]}
         styles={styles}
         isSearchable={false}
         menuPlacement={menuPlacement}
@@ -95,6 +104,14 @@ Select.propTypes = {
       label: PropTypes.string,
     }),
   ).isRequired,
+  value: PropTypes.shape({
+    value: PropTypes.string,
+    label: PropTypes.string,
+  }),
+  defaultValue: PropTypes.shape({
+    value: PropTypes.string,
+    label: PropTypes.string,
+  }),
   name: PropTypes.string,
   width: PropTypes.string,
   menuPlacement: PropTypes.string,
@@ -102,6 +119,8 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
+  value: null,
+  defaultValue: null,
   name: '',
   width: '100%',
   menuPlacement: 'bottom',
