@@ -10,6 +10,14 @@ import HeaderNav from './HeaderNav';
 
 const Header = ({ user }) => {
   const { t } = useTranslation('translation', { useSuspense: false });
+  const translatedNavItems = NAV_ITEMS.map(item => ({
+    ...item,
+    title: t(`nav.${item.title.toLowerCase()}`),
+    subitems: item.subitems.map(subitem => ({
+      ...subitem,
+      title: t(`${item.title.toLowerCase()}.${subitem.title.toLowerCase()}`),
+    })),
+  }));
 
   return (
     <HeaderBlock>
@@ -27,7 +35,7 @@ const Header = ({ user }) => {
             <LinkButton to="/signup">{t('signup')}</LinkButton>
           </RightTop>
         )}
-        <HeaderNav nav={NAV_ITEMS} />
+        <HeaderNav nav={translatedNavItems} />
       </div>
     </HeaderBlock>
   );
