@@ -78,6 +78,8 @@ const StyledButton = styled.button`
       ? props.$padding
       : `0.5rem ${props.$morepadding ? '1rem' : '0.4rem'}`};
 
+  ${props => props.theme.utils.selectionStyle(props.theme, props.$reverse)}
+
   ${props =>
     props.$hover &&
     css`
@@ -89,8 +91,11 @@ const StyledButton = styled.button`
         color: ${props.$reverse
           ? props.theme.colors.accentColor || '#000'
           : props.theme.colors.primaryColor || '#fff'};
+
+        ${props.theme.utils.selectionStyle(props.theme, !props.$reverse)}
       }
     `}
+
   & + & {
     margin-left: 0.5rem;
   }

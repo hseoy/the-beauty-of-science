@@ -1,3 +1,5 @@
+import { css } from 'styled-components';
+import hexRgb from 'hex-rgb';
 import { calcRem, pxToRem } from './utils';
 
 const fontFamiyBase = `'NanumSquareR', 'NanumBarunpenR', sans-serif`;
@@ -17,9 +19,25 @@ const font = {
   },
 };
 
+const selectionStyle = (theme, reverse, alpha = 0.99) =>
+  css`
+    ::selection {
+      background-color: ${hexRgb(
+        reverse
+          ? theme.colors.primaryColor || '#fff'
+          : theme.colors.accentColor || '#000',
+        { format: 'css', alpha },
+      )};
+      color: ${reverse
+        ? theme.colors.accentColor || '#000'
+        : theme.colors.primaryColor || '#fff'};
+    }
+  `;
+
 const utils = {
   calcRem,
   pxToRem,
+  selectionStyle,
 };
 
 const deviceSizes = {

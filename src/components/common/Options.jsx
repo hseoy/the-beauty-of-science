@@ -84,9 +84,12 @@ const Option = styled.button`
       : props.theme.colors.accentColor || '#000'};
   font-family: ${({ theme }) => theme.font.family.accent || 'sans-serif'};
 
+  ${props => props.theme.utils.selectionStyle(props.theme, props.$active)}
+
   &:hover {
     color: ${props => props.theme.colors.primaryColor || '#fff'};
     background-color: ${props => props.theme.colors.accentColor || '#000'};
+    ${props => props.theme.utils.selectionStyle(props.theme, true)}
   }
 `;
 

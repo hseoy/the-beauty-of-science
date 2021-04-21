@@ -90,6 +90,7 @@ const QuizItemAnswer = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.accentColor || '#000'};
     color: ${({ theme }) => theme.colors.primaryColor || '#fff'};
+    ${props => props.theme.utils.selectionStyle(props.theme, true)}
   }
 `;
 
