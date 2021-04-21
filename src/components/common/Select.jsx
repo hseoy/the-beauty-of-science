@@ -119,7 +119,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
-  value: null,
+  value: undefined,
   defaultValue: null,
   name: '',
   width: '100%',
