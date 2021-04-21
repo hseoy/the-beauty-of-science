@@ -1,0 +1,62 @@
+{
+  "maintitle": "The Beauty of Science",
+  "subtitle": "Discuss the beauty of science",
+  "common": {
+    "hello": "Hello",
+    "posts": "Posts",
+    "quizzes": "Quizzes",
+    "settings": "Settings",
+    "level": "LEVEL",
+    "point": "Point",
+    "tryAgain": "Try again",
+    "submit": "Submit"
+  },
+  "nav": {
+    "category": "Category",
+    "rank": "Rank",
+    "quiz": "Quiz"
+  },
+  "category": {
+    "common": "Common",
+    "physics": "Physics",
+    "chemistry": "Chemistry",
+    "geoscience": "Geoscience",
+    "biology": "Biology"
+  },
+  "signin": "Sign In",
+  "signup": "Sign Up",
+  "inputTitle": {
+    "name": "NAME",
+    "email": "EMAIL",
+    "password": "PW",
+    "repassword": "Re-PW"
+  },
+  "placeholder": {
+    "username": "Enter your name...",
+    "email": "Enter your email...",
+    "password": "Enter your password...",
+    "repassword": "Confirm your password..."
+  },
+  "homeElement": {
+    "popularPostsMaintitle": "Popular Posts",
+    "popularPostsSubtitle": "You are gonna love this",
+    "todayQuizMaintitle": "Today's Quiz",
+    "todayQuizSubtitle": "One quiz everyday",
+    "userPodiumMaintitle": "Top User",
+    "userPodiumSubtitle": "The most active users"
+  },
+  "commentary": {
+    "commentary": "Commentary",
+    "no": "There are no commentary",
+    "read": "Read the commentary"
+  },
+  "answer": {
+    "answer": "Answer",
+    "rightAnswer": "Right Answer",
+    "wrong": "That's a wrong answer",
+    "right": "That's right!",
+    "pleaseEnter": "Please enter answers"
+  },
+  "noChoice": "There are no choice",
+  "makeQuiz": "Make a Quiz"
+}

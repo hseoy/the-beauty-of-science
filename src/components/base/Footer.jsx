@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Select from 'components/common/Select';
+import { useTranslation } from 'react-i18next';
 
 const getCurrentYear = () => {
   const date = new Date();
@@ -9,11 +10,14 @@ const getCurrentYear = () => {
 };
 
 const languages = [
-  { value: 'ko-kr', label: 'Korean' },
-  { value: 'en-us', label: 'English' },
+  { value: 'ko', label: 'Korean' },
+  { value: 'en', label: 'English' },
 ];
 
 const Footer = ({ copyrightYear, author, homepage }) => {
+  const { i18n } = useTranslation('translation', { useSuspense: false });
+  const currentLang = i18n.language === 'ko' ? languages[0] : languages[1];
+
   return (
     <FooterBlock>
       <div className="copyright">
@@ -28,7 +32,12 @@ const Footer = ({ copyrightYear, author, homepage }) => {
         . All rights reserved.
       </div>
       <div className="lang">
-        <Select options={languages} menuPlacement="top" />
+        <Select
+          value={currentLang}
+          options={languages}
+          onChange={lang => i18n.changeLanguage(lang)}
+          menuPlacement="top"
+        />
       </div>
     </FooterBlock>
   );

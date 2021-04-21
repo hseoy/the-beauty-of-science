@@ -1,0 +1,62 @@
+{
+  "maintitle": "The Beauty of Science",
+  "subtitle": "과학의 아름다움에 대해 논하다",
+  "common": {
+    "hello": "안녕",
+    "posts": "글",
+    "quizzes": "퀴즈",
+    "settings": "설정",
+    "level": "레벨",
+    "point": "포인트",
+    "tryAgain": "다시 시도하기",
+    "submit": "제출"
+  },
+  "nav": {
+    "category": "카테고리",
+    "rank": "랭크",
+    "quiz": "퀴즈"
+  },
+  "category": {
+    "common": "자유",
+    "physics": "물리학",
+    "chemistry": "화학",
+    "geoscience": "지구과학",
+    "biology": "생물학"
+  },
+  "signin": "로그인",
+  "signup": "회원가입",
+  "inputTitle": {
+    "name": "이름",
+    "email": "이메일",
+    "password": "PW",
+    "repassword": "Re-PW"
+  },
+  "placeholder": {
+    "username": "이름을 입력하세요...",
+    "email": "이메일을 입력하세요...",
+    "password": "비밀번호를 입력하세요...",
+    "repassword": "비밀번호를 다시 입력하세요..."
+  },
+  "homeElement": {
+    "popularPostsMaintitle": "인기 글",
+    "popularPostsSubtitle": "누구나 좋아할 만할 글들",
+    "todayQuizMaintitle": "오늘의 퀴즈",
+    "todayQuizSubtitle": "매일 한 퀴즈",
+    "userPodiumMaintitle": "상위 유저들",
+    "userPodiumSubtitle": "가장 많이 활동한 유저들"
+  },
+  "commentary": {
+    "commentary": "해설",
+    "no": "해설이 없습니다",
+    "read": "해설 보기"
+  },
+  "answer": {
+    "answer": "보기",
+    "rightAnswer": "정답",
+    "wrong": "잘못된 답입니다",
+    "right": "정답입니다!",
+    "pleaseEnter": "보기들을 입력해주세요"
+  },
+  "noChoice": "보기가 존재하지 않습니다",
+  "makeQuiz": "퀴즈 생성"
+}

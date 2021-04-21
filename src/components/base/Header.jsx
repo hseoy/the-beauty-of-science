@@ -2,19 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import LinkButton from 'components/common/LinkButton';
+import { useTranslation } from 'react-i18next';
 import { NAV_ITEMS } from '../../lib/constants';
 import HeaderTitle from './HeaderTitle';
 import HeaderUser from './HeaderUser';
 import HeaderNav from './HeaderNav';
 
 const Header = ({ user }) => {
+  const { t } = useTranslation('translation', { useSuspense: false });
+
   return (
     <HeaderBlock>
       <div className="inner">
-        <HeaderTitle
-          maintitle="The Beauty of Science"
-          subtitle="Discuss the beauty of science"
-        />
+        <HeaderTitle maintitle={t('maintitle')} subtitle={t('subtitle')} />
         {user ? (
           <RightTop>
             <LinkButton to="/profile">
@@ -23,8 +23,8 @@ const Header = ({ user }) => {
           </RightTop>
         ) : (
           <RightTop>
-            <LinkButton to="/signin">Sign In</LinkButton>
-            <LinkButton to="/signup">Sign Up</LinkButton>
+            <LinkButton to="/signin">{t('signin')}</LinkButton>
+            <LinkButton to="/signup">{t('signup')}</LinkButton>
           </RightTop>
         )}
         <HeaderNav nav={NAV_ITEMS} />
