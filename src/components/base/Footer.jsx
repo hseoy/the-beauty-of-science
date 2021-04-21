@@ -1,20 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Select from 'components/common/Select';
 
 const getCurrentYear = () => {
   const date = new Date();
   return date.getFullYear();
 };
 
+const languages = [
+  { value: 'ko-kr', label: 'Korean' },
+  { value: 'en-us', label: 'English' },
+];
+
 const Footer = ({ copyrightYear, author, homepage }) => {
   return (
     <FooterBlock>
-      {`Copyright ${copyrightYear}. `}
-      <FooterAuthorLink target="_blank" rel="noreferrer" href={homepage}>
-        {author}
-      </FooterAuthorLink>
-      . All rights reserved.
+      <div className="copyright">
+        {`Copyright ${copyrightYear}. `}
+        <FooterAuthorLink
+          target="_blank"
+          rel="noopener noreferrer"
+          href={homepage}
+        >
+          {author}
+        </FooterAuthorLink>
+        . All rights reserved.
+      </div>
+      <div className="lang">
+        <Select options={languages} menuPlacement="top" />
+      </div>
     </FooterBlock>
   );
 };
@@ -33,14 +48,22 @@ Footer.defaultProps = {
 
 const FooterBlock = styled.div`
   background-color: ${({ theme }) => theme.colors.primaryColor || '#fff'};
+  border-top: 3px solid ${({ theme }) => theme.colors.accentColor || '#000'};
   width: 100%;
-  height: 5rem;
+  padding: 2rem 0 4rem;
   text-align: center;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: ${({ theme }) => theme.font.family.accent || 'sans-serif'};
+
+  > .lang {
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    width: 200px;
+  }
 `;
 
 const FooterAuthorLink = styled.a`
@@ -55,6 +78,7 @@ const FooterAuthorLink = styled.a`
     text-decoration: none;
     color: ${({ theme }) => theme.colors.primaryColor || '#fff'};
     background-color: ${({ theme }) => theme.colors.accentColor || '#000'};
+    ${props => props.theme.utils.selectionStyle(props.theme, true)}
   }
 `;
 
