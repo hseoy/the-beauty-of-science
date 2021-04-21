@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import zIndexes from 'lib/styles/zIndexes';
 import Overlay from './Overlay';
-import Portal from './Portal';
+import Portal from '../common/Portal';
 import ModalTemplate from './ModalTemplate';
 
 const Modal = ({
