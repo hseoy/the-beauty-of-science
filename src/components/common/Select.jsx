@@ -64,7 +64,7 @@ const selectStyles = theme => ({
   }),
 });
 
-const Select = ({ options, name, width, onChange }) => {
+const Select = ({ options, name, width, menuPlacement, onChange }) => {
   const themeContext = useContext(ThemeContext);
   const styles = useMemo(() => selectStyles(themeContext), [themeContext]);
   const onChangeHandler = option => {
@@ -81,6 +81,7 @@ const Select = ({ options, name, width, onChange }) => {
         defaultValue={options[0]}
         styles={styles}
         isSearchable={false}
+        menuPlacement={menuPlacement}
         onChange={onChangeHandler}
       />
     </SelectBlock>
@@ -96,12 +97,14 @@ Select.propTypes = {
   ).isRequired,
   name: PropTypes.string,
   width: PropTypes.string,
+  menuPlacement: PropTypes.string,
   onChange: PropTypes.func,
 };
 
 Select.defaultProps = {
   name: '',
   width: '100%',
+  menuPlacement: 'bottom',
   onChange: null,
 };
 
