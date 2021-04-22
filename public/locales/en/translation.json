@@ -34,7 +34,7 @@
     "passwordConfirm": "Re-PW"
   },
   "placeholder": {
-    "username": "Enter your name...",
+    "name": "Enter your name...",
     "email": "Enter your email...",
     "password": "Enter your password...",
     "passwordConfirm": "Confirm your password..."
