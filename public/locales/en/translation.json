@@ -31,13 +31,13 @@
     "name": "NAME",
     "email": "EMAIL",
     "password": "PW",
-    "repassword": "Re-PW"
+    "passwordConfirm": "Re-PW"
   },
   "placeholder": {
     "username": "Enter your name...",
     "email": "Enter your email...",
     "password": "Enter your password...",
-    "repassword": "Confirm your password..."
+    "passwordConfirm": "Confirm your password..."
   },
   "homeElement": {
     "popularPostsMaintitle": "Popular Posts",

@@ -32,13 +32,13 @@
     "name": "이름",
     "email": "이메일",
     "password": "PW",
-    "repassword": "Re-PW"
+    "passwordConfirm": "Re-PW"
   },
   "placeholder": {
     "username": "이름을 입력하세요...",
     "email": "이메일을 입력하세요...",
     "password": "비밀번호를 입력하세요...",
-    "repassword": "비밀번호를 다시 입력하세요..."
+    "passwordConfirm": "비밀번호를 다시 입력하세요..."
   },
   "homeElement": {
     "popularPostsMaintitle": "인기 글",
