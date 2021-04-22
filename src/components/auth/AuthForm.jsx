@@ -3,56 +3,52 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from 'components/common/Button';
 import LinkButton from 'components/common/LinkButton';
+import { useTranslation } from 'react-i18next';
 import AuthInput from './AuthInput';
 
-const textMap = {
-  signin: 'Sign in',
-  signup: 'Sign up',
-};
-
 const AuthForm = ({ type }) => {
-  const text = textMap[type];
+  const { t } = useTranslation('translation', { useSuspense: false });
 
   return (
     <AuthFormBlock>
       <div className="body">
         {type === 'signup' && (
           <AuthInput
-            title="NAME"
+            title={t('inputTitle.name')}
             type="text"
             name="username"
-            placeholder="Enter your name..."
+            placeholder={t('placeholder.name')}
           />
         )}
         <AuthInput
-          title="EMAIL"
+          title={t('inputTitle.email')}
           type="email"
           name="email"
-          placeholder="Enter your email..."
+          placeholder={t('placeholder.email')}
         />
         <AuthInput
-          title="PW"
+          title={t('inputTitle.password')}
           type="password"
           name="password"
-          placeholder="Enter your password..."
+          placeholder={t('placeholder.password')}
         />
         {type === 'signup' && (
           <AuthInput
-            title="Re-PW"
+            title={t('inputTitle.passwordConfirm')}
             type="password"
-            name="repassword"
-            placeholder="Confirm your password..."
+            name="passwordConfirm"
+            placeholder={t('placeholder.passwordConfirm')}
           />
         )}
         <Button fullwidth hover={false} reverse>
-          {text}
+          {t(type)}
         </Button>
       </div>
       <Footer>
         {type === 'signup' ? (
-          <RoundLinkButton to="/signin">Sign In</RoundLinkButton>
+          <RoundLinkButton to="/signin">{t('signin')}</RoundLinkButton>
         ) : (
-          <RoundLinkButton to="/signup">Sign Up</RoundLinkButton>
+          <RoundLinkButton to="/signup">{t('signup')}</RoundLinkButton>
         )}
       </Footer>
     </AuthFormBlock>
