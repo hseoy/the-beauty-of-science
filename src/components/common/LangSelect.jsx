@@ -11,7 +11,8 @@ const languages = [
 
 const LangSelect = ({ menuPlacement }) => {
   const { i18n } = useTranslation('translation', { useSuspense: false });
-  const currentLang = i18n.language === 'ko' ? languages[0] : languages[1];
+  const currentLang = languages.filter(lang => lang.value === i18n.language);
+
   return (
     <LangSelectBlock>
       <Select
