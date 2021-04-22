@@ -3,16 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Podium from 'components/home/Podium';
 import Options from 'components/common/Options';
+import { useTranslation } from 'react-i18next';
 import HomeElement from './HomeElement';
 
-const UserPodium = ({
-  maintitle,
-  subtitle,
-  option,
-  optionList,
-  onChangeOption,
-  users,
-}) => {
+const UserPodium = ({ option, optionList, onChangeOption, users }) => {
+  const { t } = useTranslation('translation', { useSuspense: false });
+
   const bars = users.map(user => ({ top: user.title, bottom: user.name }));
 
   while (bars.length < 3) {
@@ -20,7 +16,11 @@ const UserPodium = ({
   }
 
   return (
-    <HomeElement maintitle={maintitle} subtitle={subtitle} width="50%">
+    <HomeElement
+      maintitle={t('homeElement.userPodiumMaintitle')}
+      subtitle={t('homeElement.userPodiumSubtitle')}
+      width="50%"
+    >
       <UserPodiumBlock>
         {optionList && (
           <Options
@@ -40,8 +40,6 @@ const UserPodium = ({
 };
 
 UserPodium.propTypes = {
-  maintitle: PropTypes.string,
-  subtitle: PropTypes.string,
   option: PropTypes.string,
   optionList: PropTypes.arrayOf(PropTypes.string),
   onChangeOption: PropTypes.func,
@@ -54,8 +52,6 @@ UserPodium.propTypes = {
 };
 
 UserPodium.defaultProps = {
-  maintitle: 'Top User',
-  subtitle: 'The most active users',
   option: '',
   optionList: [],
   onChangeOption: null,

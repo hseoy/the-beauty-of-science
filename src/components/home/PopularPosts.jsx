@@ -4,9 +4,12 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import PostCard from 'components/post/PostCard';
 import Slider from 'components/common/Slider';
+import { useTranslation } from 'react-i18next';
 import HomeElement from './HomeElement';
 
 const PopularPosts = ({ posts }) => {
+  const { t } = useTranslation('translation', { useSuspense: false });
+
   const sliderSettings = {
     dots: true,
     arrows: false,
@@ -34,8 +37,8 @@ const PopularPosts = ({ posts }) => {
 
   return (
     <HomeElement
-      maintitle="Popular Posts"
-      subtitle="You are gonna love this"
+      maintitle={t('homeElement.popularPostsMaintitle')}
+      subtitle={t('homeElement.popularPostsSubtitle')}
       width="100%"
     >
       <PopularPostsBlock>

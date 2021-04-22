@@ -2,18 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import HomeElement from 'components/home/HomeElement';
 import QuizItem from 'container/quiz/QuizItemContainer';
+import { useTranslation } from 'react-i18next';
 
-const TodayQuiz = ({ maintitle, subtitle, quiz }) => {
+const TodayQuiz = ({ quiz }) => {
+  const { t } = useTranslation('translation', { useSuspense: false });
+
   return (
-    <HomeElement maintitle={maintitle} subtitle={subtitle} width="50%">
+    <HomeElement
+      maintitle={t('homeElement.todayQuizMaintitle')}
+      subtitle={t('homeElement.todayQuizSubtitle')}
+      width="50%"
+    >
       <QuizItem quiz={quiz} />
     </HomeElement>
   );
 };
 
 TodayQuiz.propTypes = {
-  maintitle: PropTypes.string,
-  subtitle: PropTypes.string,
   quiz: PropTypes.shape({
     author: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -24,8 +29,6 @@ TodayQuiz.propTypes = {
 };
 
 TodayQuiz.defaultProps = {
-  maintitle: "Today's Quiz",
-  subtitle: 'One quiz everyday',
   quiz: {
     author: '',
     title: '',
