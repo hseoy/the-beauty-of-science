@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 const PostCard = ({ thumbnailImage, date, title, author }) => {
+  const { t } = useTranslation('translation', { useSuspense: false });
+
   return (
     <PostCardBlock>
       <div className="thumbnail">
@@ -13,7 +16,10 @@ const PostCard = ({ thumbnailImage, date, title, author }) => {
         </div>
       </div>
       <div className="author">
-        <div className="author-level">{author.level}</div>
+        <div className="author-level">
+          {t('common.level')}
+          {author.level}
+        </div>
         <div className="author-name">{author.name}</div>
       </div>
     </PostCardBlock>

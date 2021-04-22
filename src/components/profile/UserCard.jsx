@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 const UserCard = ({ user }) => {
+  const { t } = useTranslation('translation', { useSuspense: false });
   return (
     <UserCardBlock>
       <div className="user-level">
-        {`LEVEL${parseInt(user.experience / 100, 10) + 1}:${user.experience}`}
+        {`${t('common.level')}${parseInt(user.experience / 100, 10) + 1}:${
+          user.experience
+        }`}
       </div>
       <div className="user-profile">
         <div className="user-avatar">

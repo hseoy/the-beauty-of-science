@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from 'components/common/Button';
+import { useTranslation } from 'react-i18next';
 
 const QuizItemCommentary = ({ children, onClickTryAgain }) => {
+  const { t } = useTranslation('translation', { useSuspense: false });
   const onClickTryAgainHandler = e => {
     if (onClickTryAgain) {
       onClickTryAgain(e);
@@ -11,9 +13,9 @@ const QuizItemCommentary = ({ children, onClickTryAgain }) => {
   };
   return (
     <QuizItemCommentaryBlock>
-      <div className="commentary">{children || 'There are no commentary'}</div>
+      <div className="commentary">{children || t('commentary.no')}</div>
       <div className="retry-button">
-        <Button onClick={onClickTryAgainHandler}>Try again</Button>
+        <Button onClick={onClickTryAgainHandler}>{t('common.tryAgain')}</Button>
       </div>
     </QuizItemCommentaryBlock>
   );

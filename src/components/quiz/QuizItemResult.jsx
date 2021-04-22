@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from 'components/common/Button';
+import { useTranslation } from 'react-i18next';
 
 const QuizItemResult = ({ isRight, onClickTryAgain, onClickCommentary }) => {
+  const { t } = useTranslation('translation', { useSuspense: false });
   const onClickTryAgainHandler = e => {
     if (onClickTryAgain) {
       onClickTryAgain(e);
@@ -17,15 +19,17 @@ const QuizItemResult = ({ isRight, onClickTryAgain, onClickCommentary }) => {
   return (
     <QuizItemResultBlock>
       <h3 className="title">
-        {isRight ? "That's right!" : "That's a wrong answer"}
+        {isRight ? t('answer.right') : t('answer.wrong')}
       </h3>
       <div className="content">
         {isRight ? (
           <Button onClick={onClickCommentaryHandler}>
-            Read the commentary
+            {t('commentary.read')}
           </Button>
         ) : (
-          <Button onClick={onClickTryAgainHandler}>Try again</Button>
+          <Button onClick={onClickTryAgainHandler}>
+            {t('common.tryAgain')}
+          </Button>
         )}
       </div>
     </QuizItemResultBlock>

@@ -3,13 +3,15 @@
   "subtitle": "Discuss the beauty of science",
   "common": {
     "hello": "Hello",
+    "post": "Post",
     "posts": "Posts",
     "quizzes": "Quizzes",
     "settings": "Settings",
     "level": "LEVEL",
     "point": "Point",
     "tryAgain": "Try again",
-    "submit": "Submit"
+    "submit": "Submit",
+    "quiz": "Quiz"
   },
   "nav": {
     "category": "Category",

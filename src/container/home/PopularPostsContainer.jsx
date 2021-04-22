@@ -10,7 +10,7 @@ const PopularPostsContainer = () => {
     title: 'ABCD',
     author: {
       name: 'Yunseo Hwang',
-      level: 'Level 1',
+      level: 1,
     },
   };
   const posts = [

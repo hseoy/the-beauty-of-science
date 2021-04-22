@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import NumberOptions from 'components/common/NumberOptions';
+import { useTranslation } from 'react-i18next';
 import Editor from './Editor';
 
 const QuizEditor = ({ quiz, onChange }) => {
+  const { t } = useTranslation('translation', { useSuspense: false });
   const quizAnswers = [...quiz.answers];
 
   while (quizAnswers.length < 4) {
@@ -57,7 +59,7 @@ const QuizEditor = ({ quiz, onChange }) => {
 
   const answers = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
   const answerInputs = answers.map((data, i) => (
-    <QuizEditorInput $title={`Answer ${data.id}`} key={data.id}>
+    <QuizEditorInput $title={`${t('answer.answer')} ${data.id}`} key={data.id}>
       <input
         type="text"
         value={quiz.answers[i] || ''}
@@ -67,13 +69,13 @@ const QuizEditor = ({ quiz, onChange }) => {
   ));
 
   return (
-    <Editor button="Make a Quiz">
+    <Editor button={t('makeQuiz')}>
       <QuizEditorBlock>
         <h3 className="title">
-          <div className="title-box">Quiz</div>
+          <div className="title-box">{t('common.quiz')}</div>
         </h3>
 
-        <QuizEditorInput $title="Title">
+        <QuizEditorInput $title={t('common.title')}>
           <input
             type="text"
             value={quiz.title}
@@ -83,7 +85,7 @@ const QuizEditor = ({ quiz, onChange }) => {
 
         <div className="answers">{answerInputs}</div>
 
-        <QuizEditorInput $title="Right Answer">
+        <QuizEditorInput $title={t('answer.rightAnswer')}>
           {quiz.answers[0] ||
           quiz.answers[1] ||
           quiz.answers[2] ||
@@ -95,18 +97,18 @@ const QuizEditor = ({ quiz, onChange }) => {
               onChange={onNumberChangeHandler('rightAnswer')}
             />
           ) : (
-            <div className="no-answers">Please enter answers</div>
+            <div className="no-answers">{t('answer.pleaseEnter')}</div>
           )}
         </QuizEditorInput>
 
-        <QuizEditorInput $title="Commentary">
+        <QuizEditorInput $title={t('commentary.commentary')}>
           <textarea
             value={quiz.commentary}
             onChange={onChangeHandler('commentary')}
           />
         </QuizEditorInput>
 
-        <QuizEditorInput $title="Point">
+        <QuizEditorInput $title={t('common.point')}>
           <NumberOptions
             option={quiz.point}
             count={6}

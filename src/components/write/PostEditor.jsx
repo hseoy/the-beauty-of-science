@@ -3,29 +3,50 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Select from 'components/common/Select';
 import { CATEGORIES } from 'lib/constants';
+import { useTranslation } from 'react-i18next';
 import Editor from './Editor';
 import MdEditor from './MdEditor';
 
 const PostEditor = ({ post, onChange }) => {
+  const { t, i18n } = useTranslation('translation', { useSuspense: false });
+
   const categories = useMemo(
     () =>
       CATEGORIES.map(c => ({
         value: c.title.toLowerCase(),
-        label: c.title,
+        label: t(`category.${c.title.toLowerCase()}`),
       })),
-    [],
+    [i18n.language],
+  );
+
+  const postCategory = useMemo(
+    () => categories.filter(category => category.value === post.category)[0],
+    [categories, post.category],
   );
 
   const onChangeHandler = name => e => {
     if (onChange) {
-      onChange({ [name]: e.target.value, ...post });
+      onChange({ ...post, [name]: e.target.value });
+    }
+  };
+
+  const onChangeCategory = value => {
+    if (onChange) {
+      onChange({ ...post, category: value });
     }
   };
 
   return (
-    <Editor button={`Submit - ${post.category}`}>
+    <Editor
+      button={`${t('common.submit')} - ${t(`category.${post.category}`)}`}
+    >
       <PostEditorBlock>
-        <Select options={categories} width="10rem" />
+        <Select
+          options={categories}
+          value={postCategory}
+          onChange={onChangeCategory}
+          width="10rem"
+        />
         <div className="title">
           <input
             type="text"

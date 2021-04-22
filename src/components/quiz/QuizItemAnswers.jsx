@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 const QuizItemAnswers = ({ answerList, onAnswerClick }) => {
+  const { t } = useTranslation('translation', { useSuspense: false });
   const answers = [...answerList];
 
   const answerClickHandler = num => () => {
@@ -37,7 +39,7 @@ const QuizItemAnswers = ({ answerList, onAnswerClick }) => {
           )}
         </>
       ) : (
-        <div className="no-choice">There are no choice</div>
+        <div className="no-choice">{t('noChoice')}</div>
       )}
     </QuizItemAnswersBlock>
   );
