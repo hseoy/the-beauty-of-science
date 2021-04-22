@@ -52,8 +52,8 @@ AuthInput.defaultProps = {
 
 const AuthInputBlock = styled.div`
   width: 100%;
-  height: ${props => props.$height || '2.5rem'};
-  margin: 1.5625rem auto;
+  height: ${props => props.$height || '2.8rem'};
+  margin: 1.8rem auto;
   position: relative;
   display: flex;
   background-color: ${({ theme }) => theme.colors.whiteColor || '#fff'};
