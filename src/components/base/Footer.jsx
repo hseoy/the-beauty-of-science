@@ -1,23 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Select from 'components/common/Select';
-import { useTranslation } from 'react-i18next';
+import LangSelect from 'components/common/LangSelect';
 
 const getCurrentYear = () => {
   const date = new Date();
   return date.getFullYear();
 };
 
-const languages = [
-  { value: 'ko', label: '한국어' },
-  { value: 'en', label: 'English' },
-];
-
 const Footer = ({ copyrightYear, author, homepage }) => {
-  const { i18n } = useTranslation('translation', { useSuspense: false });
-  const currentLang = i18n.language === 'ko' ? languages[0] : languages[1];
-
   return (
     <FooterBlock>
       <div className="copyright">
@@ -32,12 +23,7 @@ const Footer = ({ copyrightYear, author, homepage }) => {
         . All rights reserved.
       </div>
       <div className="lang">
-        <Select
-          value={currentLang}
-          options={languages}
-          onChange={lang => i18n.changeLanguage(lang)}
-          menuPlacement="top"
-        />
+        <LangSelect menuPlacement="top" />
       </div>
     </FooterBlock>
   );
@@ -71,7 +57,6 @@ const FooterBlock = styled.div`
     position: absolute;
     right: 0;
     margin-right: 10px;
-    width: 200px;
   }
 `;
 
