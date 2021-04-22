@@ -56,7 +56,7 @@ PopularPosts.propTypes = {
       title: PropTypes.string.isRequired,
       author: PropTypes.shape({
         name: PropTypes.string.isRequired,
-        level: PropTypes.string.isRequired,
+        level: PropTypes.number.isRequired,
       }).isRequired,
     }),
   ),

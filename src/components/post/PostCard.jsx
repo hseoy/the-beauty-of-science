@@ -32,7 +32,7 @@ PostCard.propTypes = {
   title: PropTypes.string,
   author: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    level: PropTypes.string.isRequired,
+    level: PropTypes.number.isRequired,
   }).isRequired,
 };
 
