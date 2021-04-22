@@ -10,7 +10,7 @@ const getCurrentYear = () => {
 };
 
 const languages = [
-  { value: 'ko', label: 'Korean' },
+  { value: 'ko', label: '한국어' },
   { value: 'en', label: 'English' },
 ];
 
