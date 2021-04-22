@@ -16,11 +16,11 @@
   },
   "nav": {
     "category": "카테고리",
-    "rank": "랭크",
+    "rank": "순위",
     "quiz": "퀴즈"
   },
   "category": {
-    "common": "자유",
+    "common": "공통",
     "physics": "물리학",
     "chemistry": "화학",
     "geoscience": "지구과학",
