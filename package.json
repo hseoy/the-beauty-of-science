@@ -10,6 +10,7 @@
     "i18next": "^20.2.1",
     "i18next-browser-languagedetector": "^6.1.0",
     "i18next-http-backend": "^1.2.1",
+    "immer": "^9.0.1",
     "install": "^0.13.0",
     "polished": "^4.1.1",
     "prop-types": "^15.7.2",
