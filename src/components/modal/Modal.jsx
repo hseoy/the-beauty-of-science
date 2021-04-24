@@ -144,10 +144,10 @@ const ModalBlock = styled.div`
     overflow: hidden;
 
     background-color: ${props =>
-      props.bgColor || props.theme.colors.primaryColor || '#fff'};
+      props.$bgColor || props.theme.colors.primaryColor || '#fff'};
     border: 5px solid
-      ${props => props.bdColor || props.theme.colors.accentColor || '#000'};
-    color: ${props => props.color || props.theme.colors.accentColor || '#000'};
+      ${props => props.$bdColor || props.theme.colors.accentColor || '#000'};
+    color: ${props => props.$color || props.theme.colors.accentColor || '#000'};
 
     > .close-button {
       position: absolute;
