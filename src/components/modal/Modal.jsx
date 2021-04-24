@@ -83,7 +83,6 @@ const Modal = ({
                 ) : (
                   children
                 )}
-                {children}
               </div>
             </div>
           )}
@@ -140,6 +139,8 @@ const ModalBlock = styled.div`
     box-sizing: border-box;
     position: relative;
     border-radius: 20px;
+    width: auto;
+    height: auto;
     min-width: 500px;
     overflow: hidden;
 
