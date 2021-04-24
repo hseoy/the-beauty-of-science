@@ -11,10 +11,12 @@ const Button = ({
   hover,
   padding,
   children,
+  type,
   ...rest
 }) => {
   return (
     <StyledButton
+      type={type}
       $transition={transition}
       $fontSize={fontSize}
       $borderRadius={borderRadius}
@@ -42,6 +44,7 @@ Button.propTypes = {
   fullwidth: PropTypes.bool,
   reverse: PropTypes.bool,
   hover: PropTypes.bool,
+  type: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -53,6 +56,7 @@ Button.defaultProps = {
   fullwidth: false,
   reverse: false,
   hover: true,
+  type: 'button',
 };
 
 const StyledButton = styled.button`
