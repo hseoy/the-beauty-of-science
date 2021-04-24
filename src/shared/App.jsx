@@ -1,16 +1,16 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
 import Home from 'pages/Home';
 import SignupPage from 'pages/SignupPage';
 import SigninPage from 'pages/SigninPage';
+import PublicRoute from 'components/route/PublicRoute';
+// import PrivateRoute from 'components/route/PrivateRoute';
 
 const App = () => {
-  const isSigned = false;
   return (
     <>
-      <Route exact path="/" render={() => <Home isSigned={isSigned} />} />
-      <Route exact path="/signin" component={SigninPage} />
-      <Route exact path="/signup" component={SignupPage} />
+      <PublicRoute exact path="/" component={Home} />
+      <PublicRoute restricted exact path="/signin" component={SigninPage} />
+      <PublicRoute restricted exact path="/signup" component={SignupPage} />
     </>
   );
 };
