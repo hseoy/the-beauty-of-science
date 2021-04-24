@@ -26,6 +26,15 @@ export const changeField = createAction(
 );
 
 export const initializeForm = createAction(INITIALIZE_FORM, form => form);
+export const signup = createAction(SIGNUP, ({ username, email, password }) => ({
+  username,
+  email,
+  password,
+}));
+export const signin = createAction(SIGNIN, ({ email, password }) => ({
+  email,
+  password,
+}));
 
 const signupSaga = createRequestSaga(SIGNUP, authAPI.signup);
 const signinSaga = createRequestSaga(SIGNIN, authAPI.signin);
