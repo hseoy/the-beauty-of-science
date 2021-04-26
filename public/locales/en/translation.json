@@ -11,7 +11,9 @@
     "point": "Point",
     "tryAgain": "Try again",
     "submit": "Submit",
-    "quiz": "Quiz"
+    "quiz": "Quiz",
+    "success": "Success",
+    "error": "Error"
   },
   "nav": {
     "category": "Category",
@@ -25,8 +27,24 @@
     "geoscience": "Geoscience",
     "biology": "Biology"
   },
-  "signin": "Sign In",
-  "signup": "Sign Up",
+  "form": {
+    "enterAll": "Please enter all values"
+  },
+  "signin": {
+    "signin": "Sign In",
+    "failed": "Sign in failed",
+    "success": "Sign in succeeded"
+  },
+  "signup": {
+    "signup": "Sign Up",
+    "success": "Sign up succeeded",
+    "failed": {
+      "failed": "Sign up failed",
+      "alreadySigned": "Account already signed",
+      "invalidPw": "Invalid password. Password must contain at least two symbols and must have no spaces. The minimum length is 8 and the maximum length is 100.",
+      "doNotMatch": "Passwords do not match"
+    }
+  },
   "inputTitle": {
     "name": "NAME",
     "email": "EMAIL",

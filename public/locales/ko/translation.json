@@ -12,7 +12,9 @@
     "point": "포인트",
     "tryAgain": "다시 시도하기",
     "submit": "제출",
-    "quiz": "퀴즈"
+    "quiz": "퀴즈",
+    "success": "성공",
+    "error": "오류"
   },
   "nav": {
     "category": "카테고리",
@@ -26,8 +28,24 @@
     "geoscience": "지구과학",
     "biology": "생물학"
   },
-  "signin": "로그인",
-  "signup": "회원가입",
+  "form": {
+    "enterAll": "모든 값을 입력해주세요"
+  },
+  "signin": {
+    "signin": "로그인",
+    "failed": "로그인에 실패하였습니다",
+    "success": "로그인에 성공하였습니다"
+  },
+  "signup": {
+    "signup": "회원가입",
+    "success": "회원가입에 성공하였습니다",
+    "failed": {
+      "failed": "회원가입에 실패하였습니다",
+      "alreadySigned": "이미 가입된 계정입니다.",
+      "invalidPw": "유효하지 않은 비밀번호. 비밀번호는 2개 이상의 기호가 포함되어야 하며 공백이 없어야 합니다. 최소 길이는 8글자이고 최대 길이는 100글자입니다.",
+      "doNotMatch": "비밀번호가 일치하지 않습니다."
+    }
+  },
   "inputTitle": {
     "name": "이름",
     "email": "이메일",
