@@ -53,6 +53,7 @@ ModalTemplate.defaultProps = {
 };
 
 const ModalTemplateBlock = styled.div`
+  width: 500px;
   > .title {
     width: 100%;
     height: 40%;

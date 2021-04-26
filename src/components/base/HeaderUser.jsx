@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const HeaderUser = ({ user }) => {
+const HeaderUser = ({ user, avatar }) => {
   return (
     <HeaderUserBlock>
       <div className="user-avatar">
-        <img src={user.avatar} alt="thumbnail" />
+        <img src={avatar} alt="thumbnail" />
       </div>
       <div className="user-name">{user.username}</div>
     </HeaderUserBlock>
@@ -14,15 +14,13 @@ const HeaderUser = ({ user }) => {
 };
 
 HeaderUser.propTypes = {
-  user: PropTypes.shape({
-    username: PropTypes.string.isRequired,
-    userid: PropTypes.string.isRequired,
-    avatar: PropTypes.string.isRequired,
-  }),
+  user: PropTypes.oneOfType([PropTypes.object]),
+  avatar: PropTypes.string,
 };
 
 HeaderUser.defaultProps = {
   user: null,
+  avatar: '',
 };
 
 const HeaderUserBlock = styled.div`

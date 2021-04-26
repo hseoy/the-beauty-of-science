@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 import LinkButton from 'components/common/LinkButton';
 import { useTranslation } from 'react-i18next';
 import { NAV_ITEMS } from '../../lib/constants';
@@ -8,7 +8,11 @@ import HeaderTitle from './HeaderTitle';
 import HeaderUser from './HeaderUser';
 import HeaderNav from './HeaderNav';
 
-const Header = ({ user }) => {
+const Header = () => {
+  const { user, avatar } = useSelector(state => ({
+    user: state.user.user,
+    avatar: state.user.avatar,
+  }));
   const { t } = useTranslation('translation', { useSuspense: false });
   const translatedNavItems = NAV_ITEMS.map(item => ({
     ...item,
@@ -26,31 +30,19 @@ const Header = ({ user }) => {
         {user ? (
           <RightTop>
             <LinkButton to="/profile">
-              <HeaderUser user={user} />
+              <HeaderUser user={user} avatar={avatar} />
             </LinkButton>
           </RightTop>
         ) : (
           <RightTop>
-            <LinkButton to="/signin">{t('signin')}</LinkButton>
-            <LinkButton to="/signup">{t('signup')}</LinkButton>
+            <LinkButton to="/signin">{t('signin.signin')}</LinkButton>
+            <LinkButton to="/signup">{t('signup.signup')}</LinkButton>
           </RightTop>
         )}
         <HeaderNav nav={translatedNavItems} />
       </div>
     </HeaderBlock>
   );
-};
-
-Header.propTypes = {
-  user: PropTypes.shape({
-    username: PropTypes.string.isRequired,
-    userid: PropTypes.string.isRequired,
-    avatar: PropTypes.string.isRequired,
-  }),
-};
-
-Header.defaultProps = {
-  user: null,
 };
 
 const HeaderBlock = styled.div`
