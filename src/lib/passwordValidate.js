@@ -8,6 +8,8 @@ passwordSchema
   .is()
   .max(100) // Maximum length 100
   .has()
+  .letters() // Must have  letters
+  .has()
   .symbols(2) // Must have at least 2 symbols
   .has()
   .not()
