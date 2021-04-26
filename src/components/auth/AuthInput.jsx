@@ -10,6 +10,7 @@ const AuthInput = ({
   placeholder,
   autoComplete,
   onChange,
+  value,
 }) => {
   const onChangeHandler = e => {
     if (onChange) {
@@ -27,6 +28,7 @@ const AuthInput = ({
         placeholder={placeholder}
         autoComplete={autoComplete}
         onChange={onChangeHandler}
+        value={value}
       />
     </AuthInputBlock>
   );
@@ -39,6 +41,7 @@ AuthInput.propTypes = {
   placeholder: PropTypes.string,
   autoComplete: PropTypes.string,
   onChange: PropTypes.func,
+  value: PropTypes.string,
 };
 
 AuthInput.defaultProps = {
@@ -48,6 +51,7 @@ AuthInput.defaultProps = {
   placeholder: '',
   autoComplete: 'off',
   onChange: null,
+  value: undefined,
 };
 
 const AuthInputBlock = styled.div`
