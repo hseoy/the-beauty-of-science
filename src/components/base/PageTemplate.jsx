@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
+import LinkButton from 'components/common/LinkButton';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -11,6 +13,7 @@ const PageTemplate = ({
   hideHeader,
   hideFooter,
   contentPadding,
+  location,
 }) => {
   return (
     <PageTemplateBlock
@@ -18,6 +21,7 @@ const PageTemplate = ({
       className={className}
       $contentPadding={contentPadding}
     >
+      {location.pathname !== '/' && <GoHomeLink to="/">Go Home</GoHomeLink>}
       {!hideHeader && <Header />}
       <div className="inner">
         <div className="content">{children}</div>
@@ -42,6 +46,7 @@ PageTemplate.propTypes = {
   hideHeader: PropTypes.bool,
   hideFooter: PropTypes.bool,
   contentPadding: PropTypes.string,
+  location: PropTypes.oneOfType([PropTypes.object]),
 };
 
 PageTemplate.defaultProps = {
@@ -51,6 +56,7 @@ PageTemplate.defaultProps = {
   hideHeader: false,
   hideFooter: false,
   contentPadding: '',
+  location: null,
 };
 
 const PageTemplateBlock = styled.div`
@@ -66,4 +72,12 @@ const PageTemplateBlock = styled.div`
   }
 `;
 
-export default PageTemplate;
+const GoHomeLink = styled(LinkButton)`
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 10px;
+`;
+
+export default withRouter(PageTemplate);
