@@ -10,12 +10,24 @@ const PageTemplate = ({
   className,
   hideHeader,
   hideFooter,
+  contentPadding,
 }) => {
   return (
-    <PageTemplateBlock style={style} className={className}>
+    <PageTemplateBlock
+      style={style}
+      className={className}
+      $contentPadding={contentPadding}
+    >
       {!hideHeader && <Header />}
-      {children}
-      {!hideFooter && <Footer />}
+      <div className="inner">
+        <div className="content">{children}</div>
+      </div>
+      {!hideFooter && (
+        <Footer
+          author="Yunseo Hwang"
+          homepage="https://github.com/hseoy/the-beauty-of-science"
+        />
+      )}
     </PageTemplateBlock>
   );
 };
@@ -29,6 +41,7 @@ PageTemplate.propTypes = {
   className: PropTypes.string,
   hideHeader: PropTypes.bool,
   hideFooter: PropTypes.bool,
+  contentPadding: PropTypes.string,
 };
 
 PageTemplate.defaultProps = {
@@ -37,7 +50,20 @@ PageTemplate.defaultProps = {
   className: '',
   hideHeader: false,
   hideFooter: false,
+  contentPadding: '',
 };
-const PageTemplateBlock = styled.div``;
+
+const PageTemplateBlock = styled.div`
+  > .inner {
+    width: 80%;
+    max-width: 1240px;
+    margin: 0 auto;
+    position: relative;
+
+    > .content {
+      padding: ${props => props.$contentPadding || '0px'};
+    }
+  }
+`;
 
 export default PageTemplate;
