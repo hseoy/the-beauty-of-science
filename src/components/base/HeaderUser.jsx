@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import defaultAvatar from 'assets/images/default-avatar.png';
 
 const HeaderUser = ({ user, avatar }) => {
   return (
     <HeaderUserBlock>
       <div className="user-avatar">
-        <img src={avatar} alt="thumbnail" />
+        <img src={avatar || defaultAvatar} alt="thumbnail" />
       </div>
       <div className="user-name">{user.username}</div>
     </HeaderUserBlock>

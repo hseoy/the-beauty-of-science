@@ -15,6 +15,9 @@ const [SIGNUP, SIGNUP_SUCCESS, SIGNUP_FAILURE] = createRequestActionTypes(
 const [SIGNIN, SIGNIN_SUCCESS, SIGNIN_FAILURE] = createRequestActionTypes(
   'auth/SIGNIN',
 );
+const [REFRESH, REFRESH_SUCCESS, REFRESH_FAILURE] = createRequestActionTypes(
+  'auth/REFRESH',
+);
 
 export const changeField = createAction(
   CHANGE_FIELD,
@@ -26,6 +29,7 @@ export const changeField = createAction(
 );
 
 export const initializeForm = createAction(INITIALIZE_FORM, form => form);
+export const refresh = createAction(REFRESH);
 export const signup = createAction(SIGNUP, ({ username, email, password }) => ({
   username,
   email,
@@ -38,10 +42,12 @@ export const signin = createAction(SIGNIN, ({ email, password }) => ({
 
 const signupSaga = createRequestSaga(SIGNUP, authAPI.signup);
 const signinSaga = createRequestSaga(SIGNIN, authAPI.signin);
+const refreshSaga = createRequestSaga(REFRESH, authAPI.refresh);
 
 export function* authSaga() {
   yield takeLatest(SIGNUP, signupSaga);
   yield takeLatest(SIGNIN, signinSaga);
+  yield takeLatest(REFRESH, refreshSaga);
 }
 
 const initialState = {
@@ -57,6 +63,7 @@ const initialState = {
   },
   auth: null,
   authError: null,
+  refreshError: null,
 };
 
 const auth = handleActions(
@@ -87,6 +94,16 @@ const auth = handleActions(
     [SIGNIN_FAILURE]: (state, { payload: error }) => ({
       ...state,
       authError: error,
+    }),
+    [REFRESH_SUCCESS]: (state, { payload: authData }) => ({
+      ...state,
+      authError: null,
+      auth: authData,
+    }),
+    [REFRESH_FAILURE]: (state, { payload: error }) => ({
+      ...state,
+      auth: null,
+      refreshError: error,
     }),
   },
   initialState,

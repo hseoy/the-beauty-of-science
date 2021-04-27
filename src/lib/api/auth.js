@@ -18,5 +18,9 @@ export const signup = ({ email, username, password }) =>
 
 export const signout = () => client.get('/api/auth/signout');
 
-export const refresh = ({ access }) =>
-  client.post('/api/auth/refresh', { access });
+export const refresh = () =>
+  client.get('/api/auth/refresh').then(response => {
+    const { access } = response.data;
+    client.defaults.headers.common.Authorization = `Bearer ${access}`;
+    return response;
+  });
