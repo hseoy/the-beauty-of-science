@@ -4,7 +4,7 @@ import HomePage from 'pages/HomePage';
 import SignupPage from 'pages/SignupPage';
 import SigninPage from 'pages/SigninPage';
 import PublicRoute from 'components/route/PublicRoute';
-import { refresh } from 'modules/auth';
+import { refreshToken } from 'modules/auth';
 import { setUser, setAvatar } from 'modules/user';
 import Loader from 'components/common/Loader';
 // import PrivateRoute from 'components/route/PrivateRoute';
@@ -13,14 +13,14 @@ const App = () => {
   const [initLoaded, setInitLoaded] = useState(false);
   const dispatch = useDispatch();
   const {
-    auth,
+    refresh,
     refreshError,
     user,
     avatar,
     setUserError,
     setAvatarError,
   } = useSelector(state => ({
-    auth: state.auth.auth,
+    refresh: state.auth.refresh,
     refreshError: state.auth.refreshError,
     user: state.user.user,
     avatar: state.user.avatar,
@@ -29,18 +29,18 @@ const App = () => {
   }));
 
   useEffect(() => {
-    dispatch(refresh());
-  }, [dispatch]);
+    dispatch(refreshToken());
+  }, []);
 
   useEffect(() => {
-    if (auth) {
+    if (refresh) {
       dispatch(setAvatar());
       dispatch(setUser());
     }
     if (refreshError) {
       setInitLoaded(true);
     }
-  }, [auth, refreshError]);
+  }, [refresh, refreshError]);
 
   useEffect(() => {
     if (user || setUserError || avatar || setAvatarError) {

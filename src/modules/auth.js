@@ -29,7 +29,7 @@ export const changeField = createAction(
 );
 
 export const initializeForm = createAction(INITIALIZE_FORM, form => form);
-export const refresh = createAction(REFRESH);
+export const refreshToken = createAction(REFRESH);
 export const signup = createAction(SIGNUP, ({ username, email, password }) => ({
   username,
   email,
@@ -63,6 +63,7 @@ const initialState = {
   },
   auth: null,
   authError: null,
+  refresh: null,
   refreshError: null,
 };
 
@@ -95,14 +96,14 @@ const auth = handleActions(
       ...state,
       authError: error,
     }),
-    [REFRESH_SUCCESS]: (state, { payload: authData }) => ({
+    [REFRESH_SUCCESS]: (state, { payload: refreshData }) => ({
       ...state,
-      authError: null,
-      auth: authData,
+      refreshError: null,
+      refresh: refreshData,
     }),
     [REFRESH_FAILURE]: (state, { payload: error }) => ({
       ...state,
-      auth: null,
+      refresh: null,
       refreshError: error,
     }),
   },
