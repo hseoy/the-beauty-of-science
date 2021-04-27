@@ -10,10 +10,10 @@ const HomePage = () => {
   return (
     <PageTemplate contentPadding="40px 40px 50px 40px">
       <FlexColumn>
-        <FlexRow>
+        <FlexRow padding="0 0 50px 0">
           <PopularPosts />
         </FlexRow>
-        <FlexRow>
+        <FlexRow padding="0 0 50px 0">
           <UserPodium />
           <TodayQuiz />
         </FlexRow>
