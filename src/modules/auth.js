@@ -77,6 +77,7 @@ const auth = handleActions(
       ...state,
       [form]: initialState[form],
       authError: null,
+      refreshError: null,
     }),
     [SIGNUP_SUCCESS]: (state, { payload: authData }) => ({
       ...state,
