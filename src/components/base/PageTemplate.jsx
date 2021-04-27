@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import LinkButton from 'components/common/LinkButton';
+import zIndexes from 'lib/styles/zIndexes';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -13,6 +14,7 @@ const PageTemplate = ({
   hideHeader,
   hideFooter,
   contentPadding,
+  useCustomInner,
   location,
 }) => {
   return (
@@ -23,9 +25,13 @@ const PageTemplate = ({
     >
       {location.pathname !== '/' && <GoHomeLink to="/">Go Home</GoHomeLink>}
       {!hideHeader && <Header />}
-      <div className="inner">
-        <div className="content">{children}</div>
-      </div>
+      {useCustomInner ? (
+        children
+      ) : (
+        <div className="inner">
+          <div className="content">{children}</div>
+        </div>
+      )}
       {!hideFooter && (
         <Footer
           author="Yunseo Hwang"
@@ -46,6 +52,7 @@ PageTemplate.propTypes = {
   hideHeader: PropTypes.bool,
   hideFooter: PropTypes.bool,
   contentPadding: PropTypes.string,
+  useCustomInner: PropTypes.bool,
   location: PropTypes.oneOfType([PropTypes.object]),
 };
 
@@ -56,10 +63,16 @@ PageTemplate.defaultProps = {
   hideHeader: false,
   hideFooter: false,
   contentPadding: '',
+  useCustomInner: false,
   location: null,
 };
 
 const PageTemplateBlock = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: auto;
+
   > .inner {
     width: 80%;
     max-width: 1240px;
@@ -78,6 +91,7 @@ const GoHomeLink = styled(LinkButton)`
   top: 0;
   left: 0;
   margin: 10px;
+  z-index: ${zIndexes.GoHomeLink};
 `;
 
 export default withRouter(PageTemplate);

@@ -1,7 +1,8 @@
 const zIndexes = {
-  Overlay: 1,
+  GoHomeLink: 11,
+  Overlay: 12,
   OverlayInner: 100,
-  ModalCloseButton: 1,
+  ModalCloseButton: 12,
   HeaderNavSubItem: 10,
 };
 
