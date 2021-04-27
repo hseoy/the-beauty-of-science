@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Home from 'pages/Home';
+import HomePage from 'pages/HomePage';
 import SignupPage from 'pages/SignupPage';
 import SigninPage from 'pages/SigninPage';
 import PublicRoute from 'components/route/PublicRoute';
@@ -31,7 +31,7 @@ const App = () => {
 
   return (
     <>
-      <PublicRoute exact path="/" component={Home} />
+      <PublicRoute exact path="/" component={HomePage} />
       <PublicRoute restricted exact path="/signin" component={SigninPage} />
       <PublicRoute restricted exact path="/signup" component={SignupPage} />
     </>
