@@ -5,7 +5,7 @@ import QuizItem from 'container/quiz/QuizItemContainer';
 import { useTranslation } from 'react-i18next';
 
 const TodayQuiz = ({ quiz }) => {
-  const { t } = useTranslation('translation', { useSuspense: false });
+  const { t } = useTranslation();
 
   return (
     <HomeElement

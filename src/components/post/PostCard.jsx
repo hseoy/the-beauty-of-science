@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 
 const PostCard = ({ thumbnailImage, date, title, author }) => {
-  const { t } = useTranslation('translation', { useSuspense: false });
+  const { t } = useTranslation();
 
   return (
     <PostCardBlock>

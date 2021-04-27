@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import HomeElement from './HomeElement';
 
 const PopularPosts = ({ posts }) => {
-  const { t } = useTranslation('translation', { useSuspense: false });
+  const { t } = useTranslation();
 
   const sliderSettings = {
     dots: true,

@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import HomeElement from './HomeElement';
 
 const UserPodium = ({ option, optionList, onChangeOption, users }) => {
-  const { t } = useTranslation('translation', { useSuspense: false });
+  const { t } = useTranslation();
 
   const bars = users.map(user => ({ top: user.title, bottom: user.name }));
 

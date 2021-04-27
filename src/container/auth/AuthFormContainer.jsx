@@ -9,7 +9,7 @@ import { setUser, setAvatar } from 'modules/user';
 import AuthModal from 'components/auth/AuthModal';
 
 const AuthFormContainer = ({ type, onSubmit }) => {
-  const { t } = useTranslation('translation', { useSuspense: false });
+  const { t } = useTranslation();
 
   const dispatch = useDispatch();
   const { form, auth, authError } = useSelector(state => ({

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 
 const QuizItemAnswers = ({ answerList, onAnswerClick }) => {
-  const { t } = useTranslation('translation', { useSuspense: false });
+  const { t } = useTranslation();
   const answers = [...answerList];
 
   const answerClickHandler = num => () => {

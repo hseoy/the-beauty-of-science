@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import UserCard from './UserCard';
 
 const ProfileHeader = ({ user }) => {
-  const { t } = useTranslation('translation', { useSuspense: false });
+  const { t } = useTranslation();
 
   return (
     <ProfileHeaderBlock>

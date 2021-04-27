@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import HomePage from 'pages/HomePage';
 import SignupPage from 'pages/SignupPage';
@@ -50,11 +50,11 @@ const App = () => {
 
   return (
     <>
-      <>
+      <Suspense fallback={<Loader />}>
         <PublicRoute exact path="/" component={HomePage} />
         <PublicRoute restricted exact path="/signin" component={SigninPage} />
         <PublicRoute restricted exact path="/signup" component={SignupPage} />
-      </>
+      </Suspense>
       {!initLoaded && <Loader />}
     </>
   );

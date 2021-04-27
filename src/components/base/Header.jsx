@@ -13,7 +13,7 @@ const Header = () => {
     user: state.user.user,
     avatar: state.user.avatar,
   }));
-  const { t } = useTranslation('translation', { useSuspense: false });
+  const { t } = useTranslation();
   const translatedNavItems = NAV_ITEMS.map(item => ({
     ...item,
     title: t(`nav.${item.title.toLowerCase()}`),

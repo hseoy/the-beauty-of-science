@@ -4,7 +4,7 @@ import UserPodium from 'components/home/UserPodium';
 import { useTranslation } from 'react-i18next';
 
 const UserPodiumContainer = () => {
-  const { t, i18n } = useTranslation('translation', { useSuspense: false });
+  const { t, i18n } = useTranslation();
   const optionList = [
     t('common.level').toUpperCase(),
     t('common.post').toUpperCase(),

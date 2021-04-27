@@ -5,7 +5,7 @@ import Button from 'components/common/Button';
 import { useTranslation } from 'react-i18next';
 
 const QuizItemCommentary = ({ children, onClickTryAgain }) => {
-  const { t } = useTranslation('translation', { useSuspense: false });
+  const { t } = useTranslation();
   const onClickTryAgainHandler = e => {
     if (onClickTryAgain) {
       onClickTryAgain(e);

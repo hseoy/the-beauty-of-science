@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import Editor from './Editor';
 
 const QuizEditor = ({ quiz, onChange }) => {
-  const { t } = useTranslation('translation', { useSuspense: false });
+  const { t } = useTranslation();
   const quizAnswers = [...quiz.answers];
 
   while (quizAnswers.length < 4) {
