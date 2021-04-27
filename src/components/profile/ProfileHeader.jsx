@@ -1,16 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import LinkButton from 'components/common/LinkButton';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import UserCard from './UserCard';
 
-const ProfileHeader = ({ user }) => {
+const ProfileHeader = () => {
   const { t } = useTranslation();
+
+  const { user, avatar } = useSelector(state => ({
+    user: state.user.user,
+    avatar: state.user.avatar,
+  }));
 
   return (
     <ProfileHeaderBlock>
-      <UserCard user={user} />
+      <UserCard user={user} avatar={avatar} />
       <div className="links">
         <LinkButton to="#">{t('common.posts')}</LinkButton>
         <LinkButton to="#">{t('common.quizzes')}</LinkButton>
@@ -18,22 +23,6 @@ const ProfileHeader = ({ user }) => {
       </div>
     </ProfileHeaderBlock>
   );
-};
-
-ProfileHeader.propTypes = {
-  user: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    username: PropTypes.string.isRequired,
-    experience: PropTypes.number.isRequired,
-  }),
-};
-
-ProfileHeader.defaultProps = {
-  user: {
-    id: 0,
-    username: '',
-    experience: 0,
-  },
 };
 
 const ProfileHeaderBlock = styled.div`

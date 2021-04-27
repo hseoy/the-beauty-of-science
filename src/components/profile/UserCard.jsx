@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import defaultAvatar from 'assets/images/default-avatar.png';
 
-const UserCard = ({ user }) => {
+const UserCard = ({ user, avatar }) => {
   const { t } = useTranslation();
   return (
     <UserCardBlock>
@@ -14,10 +15,7 @@ const UserCard = ({ user }) => {
       </div>
       <div className="user-profile">
         <div className="user-avatar">
-          <img
-            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-            alt="user avatar"
-          />
+          <img src={avatar || defaultAvatar} alt="user avatar" />
         </div>
         <div className="user-name">{`${user.username}@${user.id}`}</div>
       </div>
@@ -31,6 +29,7 @@ UserCard.propTypes = {
     username: PropTypes.string.isRequired,
     experience: PropTypes.number.isRequired,
   }),
+  avatar: PropTypes.string,
 };
 
 UserCard.defaultProps = {
@@ -39,6 +38,7 @@ UserCard.defaultProps = {
     username: '',
     experience: 0,
   },
+  avatar: '',
 };
 
 const UserCardBlock = styled.div`

@@ -29,6 +29,7 @@ ProfileTemplate.defaultProps = {
 
 const ProfileTemplateBlock = styled.div`
   width: 100%;
+  padding-top: 3.125rem;
 `;
 
 export default ProfileTemplate;
