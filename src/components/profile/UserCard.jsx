@@ -27,7 +27,7 @@ UserCard.propTypes = {
   user: PropTypes.shape({
     id: PropTypes.number.isRequired,
     username: PropTypes.string.isRequired,
-    experience: PropTypes.number.isRequired,
+    experience: PropTypes.string.isRequired,
   }),
   avatar: PropTypes.string,
 };
@@ -36,7 +36,7 @@ UserCard.defaultProps = {
   user: {
     id: 0,
     username: '',
-    experience: 0,
+    experience: '0',
   },
   avatar: '',
 };
