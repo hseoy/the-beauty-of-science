@@ -39,6 +39,7 @@ const EditorBlock = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
 
   > .upload-button {
     display: flex;
