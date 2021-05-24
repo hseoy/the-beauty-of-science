@@ -17,13 +17,10 @@ const QuizEditor = ({ quiz, onChange }) => {
     .map((answer, i) => answer && i + 1)
     .filter(nums => nums);
 
-  const onChangeHandler = name => e => {
+  const onChangeHandler = e => {
+    const { value, name } = e.target;
     if (onChange) {
-      onChange({
-        ...quiz,
-        answers: [...quiz.answers],
-        [name]: e.target.value,
-      });
+      onChange({ ...quiz, answers: [...quiz.answers], [name]: value });
     }
   };
 
@@ -45,11 +42,13 @@ const QuizEditor = ({ quiz, onChange }) => {
       const nextRightAnswerNums = nextAnswers
         .map((answer, i) => answer && i + 1)
         .filter(nums => nums);
-      onChange({
-        ...quiz,
-        answers: nextAnswers,
-        rightAnswer: nextRightAnswerNums[0] || 0,
-      });
+      if (onChange) {
+        onChange({
+          ...quiz,
+          answers: nextAnswers,
+          rightAnswer: nextRightAnswerNums[0] || 0,
+        });
+      }
       return;
     }
     if (onChange) {
@@ -70,53 +69,53 @@ const QuizEditor = ({ quiz, onChange }) => {
 
   return (
     <Editor button={t('makeQuiz')}>
-      <QuizEditorBlock>
-        <h3 className="title">
-          <div className="title-box">{t('common.quiz')}</div>
-        </h3>
+      <QuizEditorTitle>
+        <div className="title-box">{t('common.quiz')}</div>
+      </QuizEditorTitle>
 
-        <QuizEditorInput $title={t('common.title')}>
-          <input
-            type="text"
-            value={quiz.title}
-            onChange={onChangeHandler('title')}
-          />
-        </QuizEditorInput>
+      <QuizEditorInput $title={t('common.title')}>
+        <input
+          type="text"
+          value={quiz.title}
+          name="title"
+          onChange={onChangeHandler}
+        />
+      </QuizEditorInput>
 
-        <div className="answers">{answerInputs}</div>
+      <div className="answers">{answerInputs}</div>
 
-        <QuizEditorInput $title={t('answer.rightAnswer')}>
-          {quiz.answers[0] ||
-          quiz.answers[1] ||
-          quiz.answers[2] ||
-          quiz.answers[3] ? (
-            <NumberOptions
-              option={quiz.rightAnswer}
-              nums={rightAnswerNums}
-              center
-              onChange={onNumberChangeHandler('rightAnswer')}
-            />
-          ) : (
-            <div className="no-answers">{t('answer.pleaseEnter')}</div>
-          )}
-        </QuizEditorInput>
-
-        <QuizEditorInput $title={t('commentary.commentary')}>
-          <textarea
-            value={quiz.commentary}
-            onChange={onChangeHandler('commentary')}
-          />
-        </QuizEditorInput>
-
-        <QuizEditorInput $title={t('common.point')}>
+      <QuizEditorInput $title={t('answer.rightAnswer')}>
+        {quiz.answers[0] ||
+        quiz.answers[1] ||
+        quiz.answers[2] ||
+        quiz.answers[3] ? (
           <NumberOptions
-            option={quiz.point}
-            count={6}
+            option={quiz.rightAnswer}
+            nums={rightAnswerNums}
             center
-            onChange={onNumberChangeHandler('point')}
+            onChange={onNumberChangeHandler('rightAnswer')}
           />
-        </QuizEditorInput>
-      </QuizEditorBlock>
+        ) : (
+          <div className="no-answers">{t('answer.pleaseEnter')}</div>
+        )}
+      </QuizEditorInput>
+
+      <QuizEditorInput $title={t('commentary.commentary')}>
+        <textarea
+          value={quiz.commentary}
+          name="commentary"
+          onChange={onChangeHandler}
+        />
+      </QuizEditorInput>
+
+      <QuizEditorInput $title={t('common.point')}>
+        <NumberOptions
+          option={quiz.point}
+          count={6}
+          center
+          onChange={onNumberChangeHandler('point')}
+        />
+      </QuizEditorInput>
     </Editor>
   );
 };
@@ -143,29 +142,27 @@ QuizEditor.defaultProps = {
   onChange: null,
 };
 
-const QuizEditorBlock = styled.div`
-  > .title {
-    width: 100%;
-    height: 100px;
+const QuizEditorTitle = styled.h3`
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > .title-box {
+    width: 200px;
+    height: 50px;
+    margin: 0 auto;
+    font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    > .title-box {
-      width: 200px;
-      height: 50px;
-      margin: 0 auto;
-      font-size: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
-      background-color: ${({ theme }) => theme.colors.primaryColor || '#fff'};
-      color: ${({ theme }) => theme.colors.accentColor || '#000'};
-      border: 3px solid ${({ theme }) => theme.colors.accentColor || '#000'};
-      border-radius: 3px;
-    }
+    position: relative;
+    font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
+    background-color: ${({ theme }) => theme.colors.primaryColor || '#fff'};
+    color: ${({ theme }) => theme.colors.accentColor || '#000'};
+    border: 3px solid ${({ theme }) => theme.colors.accentColor || '#000'};
+    border-radius: 3px;
   }
 `;
 
