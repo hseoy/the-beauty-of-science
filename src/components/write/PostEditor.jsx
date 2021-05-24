@@ -40,28 +40,23 @@ const PostEditor = ({ post, onChange }) => {
     <Editor
       button={`${t('common.submit')} - ${t(`category.${post.category}`)}`}
     >
-      <PostEditorBlock>
-        <Select
-          options={categories}
-          value={postCategory}
-          onChange={onChangeCategory}
-          width="10rem"
+      <Select
+        options={categories}
+        value={postCategory}
+        onChange={onChangeCategory}
+        width="10rem"
+      />
+      <PostEditorTitle>
+        <input
+          type="text"
+          className="title-input"
+          value={post.title}
+          onChange={onChangeHandler('title')}
         />
-        <div className="title">
-          <input
-            type="text"
-            className="title-input"
-            value={post.title}
-            onChange={onChangeHandler('title')}
-          />
-        </div>
-        <div className="md-editor">
-          <MdEditor
-            mdText={post.content}
-            onChange={onChangeHandler('content')}
-          />
-        </div>
-      </PostEditorBlock>
+      </PostEditorTitle>
+      <MdEditorBlock>
+        <MdEditor mdText={post.content} onChange={onChangeHandler('content')} />
+      </MdEditorBlock>
     </Editor>
   );
 };
@@ -84,32 +79,31 @@ PostEditor.defaultProps = {
   onChange: null,
 };
 
-const PostEditorBlock = styled.div`
-  > .title {
+const PostEditorTitle = styled.div`
+  font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
+  font-size: 28px;
+  padding: 10px;
+  display: flex;
+
+  &::before {
+    content: 'Title:';
+    padding-right: 24px;
+  }
+
+  > .title-input {
+    outline: none;
+    border: none;
     font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
     font-size: 28px;
-    padding: 10px;
-    display: flex;
-
-    &::before {
-      content: 'Title:';
-      padding-right: 24px;
-    }
-
-    > .title-input {
-      outline: none;
-      border: none;
-      font-family: ${({ theme }) => theme.font.family.accent || 'sans-seif'};
-      font-size: 28px;
-      display: block;
-      width: 100%;
-      border-bottom: 3px solid
-        ${({ theme }) => theme.colors.accentColor || '#000'};
-    }
+    display: block;
+    width: 100%;
+    border-bottom: 3px solid
+      ${({ theme }) => theme.colors.accentColor || '#000'};
   }
-  > .md-editor {
-    height: calc(100% - 206px);
-  }
+`;
+
+const MdEditorBlock = styled.div`
+  height: calc(100% - 206px);
 `;
 
 export default PostEditor;
