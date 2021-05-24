@@ -15,6 +15,7 @@ const PageTemplate = ({
   hideFooter,
   contentPadding,
   useCustomInner,
+  fullSizeInner,
   location,
 }) => {
   return (
@@ -22,6 +23,7 @@ const PageTemplate = ({
       style={style}
       className={className}
       $contentPadding={contentPadding}
+      $fullSizeInner={fullSizeInner}
     >
       {location.pathname !== '/' && <GoHomeLink to="/">Go Home</GoHomeLink>}
       {!hideHeader && <Header />}
@@ -52,6 +54,7 @@ PageTemplate.propTypes = {
   hideHeader: PropTypes.bool,
   hideFooter: PropTypes.bool,
   contentPadding: PropTypes.string,
+  fullSizeInner: PropTypes.bool,
   useCustomInner: PropTypes.bool,
   location: PropTypes.oneOfType([PropTypes.object]),
 };
@@ -63,6 +66,7 @@ PageTemplate.defaultProps = {
   hideHeader: false,
   hideFooter: false,
   contentPadding: '',
+  fullSizeInner: false,
   useCustomInner: false,
   location: null,
 };
@@ -76,10 +80,13 @@ const PageTemplateBlock = styled.div`
   > .inner {
     width: 80%;
     max-width: 1240px;
+    height: ${props => (props.$fullSizeInner ? '100%' : 'auto')};
     margin: 0 auto;
     position: relative;
 
     > .content {
+      width: 100%;
+      height: ${props => (props.$fullSizeInner ? '100%' : 'auto')};
       padding: ${props => props.$contentPadding || '0px'};
     }
   }
