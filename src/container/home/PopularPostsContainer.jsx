@@ -4,8 +4,7 @@ import PopularPosts from 'components/home/PopularPosts';
 const PopularPostsContainer = () => {
   // @TODO Get a list of popular posts from the server
   const post = {
-    thumbnailImage:
-      'https://i.pinimg.com/originals/84/12/71/8412715b792dc8e26f384ce8d26e8304.jpg',
+    thumbnailImage: '#',
     date: '2021.03.10',
     title: 'ABCD',
     author: {
