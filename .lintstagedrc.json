@@ -1,4 +1,7 @@
 {
-  "src/**/*.{js,jsx}": ["eslint --fix src", "prettier --write"],
+  "src/**/*.{js,jsx,ts,tsx}": [
+    "eslint --ext .tsx --ext .ts --fix",
+    "prettier --write"
+  ],
   "*.{json,md}": ["prettier --write"]
 }
